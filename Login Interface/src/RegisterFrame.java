@@ -223,6 +223,7 @@ public class RegisterFrame extends JFrame {
 					FrameLogin.username.add(user);
 					FrameLogin.password.add(pass);
 					
+					
 					create.Back();
 					create.setVisible(true);
 				JOptionPane.showMessageDialog(null, "Registered!");

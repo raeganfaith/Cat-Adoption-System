@@ -18,7 +18,6 @@ import java.awt.event.MouseEvent;
 public class SetNewPass extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtemailnp;
 	private JTextField txtusernamenp;
 	private JTextField txtnewpass;
 	private JTextField txtnewpass2;
@@ -81,24 +80,9 @@ public class SetNewPass extends JFrame {
 		lblNewLabel_1.setBounds(222, 139, 391, 28);
 		contentPane_1.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_3 = new JLabel("Email:");
-		lblNewLabel_3.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3.setBounds(102, 196, 237, 13);
-		contentPane_1.add(lblNewLabel_3);
-		
-		txtemailnp = new JTextField();
-		txtemailnp.setColumns(10);
-		txtemailnp.setBounds(102, 221, 290, 33);
-		contentPane_1.add(txtemailnp);
-		
-		JLabel lblNewLabel_3_3 = new JLabel("Username:");
-		lblNewLabel_3_3.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_3.setBounds(102, 279, 237, 13);
-		contentPane_1.add(lblNewLabel_3_3);
-		
 		txtusernamenp = new JTextField();
 		txtusernamenp.setColumns(10);
-		txtusernamenp.setBounds(102, 304, 290, 33);
+		txtusernamenp.setBounds(101, 221, 290, 33);
 		contentPane_1.add(txtusernamenp);
 		
 		JPanel jSSumbit = new JPanel();
@@ -107,17 +91,16 @@ public class SetNewPass extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				FrameLogin creates = new FrameLogin();
 				String email,userr,newpass,newpass2;
-				email = txtemailnp.getText();
 				userr = txtusernamenp.getText();
 				newpass = txtnewpass.getText();
 				newpass2 = txtnewpass2.getText();
-				if(email.equals("") || userr.equals("")|| newpass.equals("")|| newpass2.equals("")) {
+				
+				if(userr.equals("")|| newpass.equals("")|| newpass2.equals("")) {
 					JOptionPane.showMessageDialog(null, "Please input all requirements!");
-				} else {
-					FrameLogin.email.add(email);
+				} 
+				else {
 					FrameLogin.username.add(userr);
 					FrameLogin.password.add(newpass);
-					
 					creates.Back();
 					creates.setVisible(true);
 					
@@ -132,7 +115,7 @@ public class SetNewPass extends JFrame {
 		jSSumbit.setLayout(null);
 		jSSumbit.setBorder(new LineBorder(new Color(153, 153, 153), 4));
 		jSSumbit.setBackground(new Color(255, 153, 204));
-		jSSumbit.setBounds(318, 409, 172, 48);
+		jSSumbit.setBounds(318, 438, 172, 48);
 		contentPane_1.add(jSSumbit);
 		
 		JLabel lblSubmit = new JLabel("SUBMIT");
@@ -143,23 +126,27 @@ public class SetNewPass extends JFrame {
 		
 		JLabel lblNewLabel_3_3_1 = new JLabel("New Password:");
 		lblNewLabel_3_3_1.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_3_1.setBounds(456, 196, 237, 13);
+		lblNewLabel_3_3_1.setBounds(101, 268, 237, 13);
 		contentPane_1.add(lblNewLabel_3_3_1);
 		
 		txtnewpass = new JTextField();
 		txtnewpass.setColumns(10);
-		txtnewpass.setBounds(456, 221, 290, 33);
+		txtnewpass.setBounds(101, 293, 290, 33);
 		contentPane_1.add(txtnewpass);
 		
 		JLabel lblNewLabel_3_3_2 = new JLabel("Re-enter New Password");
 		lblNewLabel_3_3_2.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_3_2.setBounds(456, 279, 237, 13);
+		lblNewLabel_3_3_2.setBounds(101, 351, 237, 13);
 		contentPane_1.add(lblNewLabel_3_3_2);
 		
 		txtnewpass2 = new JTextField();
 		txtnewpass2.setColumns(10);
-		txtnewpass2.setBounds(456, 304, 290, 33);
+		txtnewpass2.setBounds(101, 376, 290, 33);
 		contentPane_1.add(txtnewpass2);
+		
+		JLabel lblNewLabel_3_3_3 = new JLabel("You can set your new username or use your previouse one");
+		lblNewLabel_3_3_3.setFont(new Font("Cher Faust", Font.PLAIN, 15));
+		lblNewLabel_3_3_3.setBounds(96, 188, 455, 28);
+		contentPane_1.add(lblNewLabel_3_3_3);
 	}
-
 }
