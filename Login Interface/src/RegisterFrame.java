@@ -40,7 +40,6 @@ public class RegisterFrame extends JFrame {
 	private JPasswordField jSPassword2;
 	private JLabel lblValidate = new JLabel("");
 	private JTextField txtAnd;
-	private JTextField txtPrivacyPol;
 	//public static ArrayList <String> email = new ArrayList();
 	//public static ArrayList <String> username = new ArrayList();
 	//public static ArrayList <String> password = new ArrayList();
@@ -114,7 +113,7 @@ public class RegisterFrame extends JFrame {
 			
 		});
 		lblbtnClose.setHorizontalAlignment(SwingConstants.CENTER);
-		lblbtnClose.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		lblbtnClose.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		lblbtnClose.setBounds(615, 0, 31, 31);
 		panel.add(lblbtnClose);
 		
@@ -429,20 +428,51 @@ public class RegisterFrame extends JFrame {
 		txtAnd.setBackground(new Color(204, 153, 102));
 		contentPane.add(txtAnd);
 		
-		txtPrivacyPol = new JTextField();
-		txtPrivacyPol.setText(" Privacy Policy.");
-		txtPrivacyPol.setForeground(new Color(0, 102, 204));
-		txtPrivacyPol.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		txtPrivacyPol.setColumns(10);
-		txtPrivacyPol.setBorder(null);
-		txtPrivacyPol.setBackground(new Color(204, 153, 102));
-		txtPrivacyPol.setBounds(419, 348, 83, 19);
-		contentPane.add(txtPrivacyPol);
+		JLabel lblTerms = new JLabel("Terms of Use");
+		//JLabel lblTerms = new JLabel("Forgot Password?");
+		lblTerms.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				TermsOfUse use = new TermsOfUse();
+				use.setVisible(true);
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblTerms.setForeground(Color.RED);
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblTerms.setForeground(Color.BLUE);
+			}
+		});
+		lblTerms.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblTerms.setForeground(new Color(0, 102, 255));
+		lblTerms.setBounds(323, 351, 76, 13);
+		contentPane.add(lblTerms);
 		
-		JLabel lblNewLabel_1 = new JLabel("Terms of Use");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_1.setForeground(new Color(0, 102, 255));
-		lblNewLabel_1.setBounds(323, 351, 76, 13);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblPrivacy = new JLabel("Privacy Policy.");
+		lblPrivacy.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PrivacyTerms privacy = new PrivacyTerms();
+				privacy.setVisible(true);
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblPrivacy.setForeground(Color.RED);
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblPrivacy.setForeground(Color.BLUE);
+			}
+		});
+		lblPrivacy.setForeground(new Color(0, 102, 204));
+		lblPrivacy.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblPrivacy.setBounds(423, 351, 77, 13);
+		contentPane.add(lblPrivacy);
 	}
 }

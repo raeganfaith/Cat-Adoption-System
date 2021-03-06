@@ -68,6 +68,28 @@ public class PrivacyTerms extends JFrame {
 		PrivacyPolicy.setFont(new Font("Cher Faust", Font.PLAIN, 30));
 		panel.add(PrivacyPolicy);
 		
+		JLabel CloseButton = new JLabel("X");
+		CloseButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
+					PrivacyTerms.this.dispose();
+				}
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				CloseButton.setForeground(Color.RED);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				CloseButton.setForeground(Color.BLACK);
+			}
+		});
+		CloseButton.setHorizontalAlignment(SwingConstants.CENTER);
+		CloseButton.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		CloseButton.setBounds(570, 0, 30, 30);
+		panel.add(CloseButton);
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBackground(Color.DARK_GRAY);
 		scrollPane.setBounds(20, 91, 551, 235);
@@ -96,8 +118,7 @@ public class PrivacyTerms extends JFrame {
 					JOptionPane.showMessageDialog(null,"Please Check the box if you want to proceed!");
 				} else {
 					PrivacyTerms.this.dispose();
-					RegisterFrame back = new RegisterFrame();
-					back.setVisible(true);
+					
 					
 				}
 			}
