@@ -27,12 +27,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class FrameLogin extends JFrame {
-	
+	//To insert and resize images
 	private Image img_logo = new ImageIcon(FrameLogin.class.getResource("res/logo.png")).getImage().getScaledInstance(250, 200, Image.SCALE_SMOOTH);
 	private Image img_user = new ImageIcon(FrameLogin.class.getResource("res/pawlogo.png")).getImage().getScaledInstance(45, 50, Image.SCALE_SMOOTH);
 	private Image img_pass = new ImageIcon(FrameLogin.class.getResource("res/keyy.png")).getImage().getScaledInstance(40, 45, Image.SCALE_SMOOTH);
-	//private Image img_close = new ImageIcon(FrameLogin.class.getResource("res/closeeye.png")).getImage().getScaledInstance(45, 25, Image.SCALE_SMOOTH);
-	//private Image img_open = new ImageIcon(FrameLogin.class.getResource("res/openeye.png")).getImage().getScaledInstance(55, 35, Image.SCALE_SMOOTH);
+	
 	private JPanel contentPane;
 	private JTextField txtUsername;
 	private JPasswordField txtPassword;
@@ -41,11 +40,6 @@ public class FrameLogin extends JFrame {
 	public static ArrayList <String> username = new ArrayList();
 	public static ArrayList <String> password = new ArrayList();
 	
-	
-	
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -58,10 +52,6 @@ public class FrameLogin extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
 	public FrameLogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);

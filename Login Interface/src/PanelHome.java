@@ -20,8 +20,7 @@ public class PanelHome extends JPanel {
 		lblhome.setBounds(10, 78, 504, 314);
 		lblhome.setIcon(new ImageIcon(img_home));
 		add(lblhome);
-		
-		JLabel lblNewLabel = new JLabel("WELCOME BACK!");
+		JLabel lblNewLabel = new JLabel("GOOD DAY " + "");
 		lblNewLabel.setFont(new Font("Cher Faust", Font.PLAIN, 25));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(158, 10, 190, 49);
