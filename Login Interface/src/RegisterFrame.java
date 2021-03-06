@@ -39,6 +39,9 @@ public class RegisterFrame extends JFrame {
 	private JPasswordField jSPassword;
 	private JPasswordField jSPassword2;
 	private JLabel lblValidate = new JLabel("");
+	private JTextField txtPrivacy;
+	private JTextField txtAnd;
+	private JTextField txtPrivacyPol;
 	//public static ArrayList <String> email = new ArrayList();
 	//public static ArrayList <String> username = new ArrayList();
 	//public static ArrayList <String> password = new ArrayList();
@@ -58,7 +61,6 @@ public class RegisterFrame extends JFrame {
 			}
 		});
 	}
-
 	/**
 	 * Create the frame.
 	 */
@@ -75,8 +77,8 @@ public class RegisterFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(153, 153, 153));
 		panel.setBounds(0, 0, 646, 132);
+		panel.setBackground(new Color(153, 153, 153));
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -118,33 +120,33 @@ public class RegisterFrame extends JFrame {
 		panel.add(lblbtnClose);
 		
 		JLabel lblNewLabel = new JLabel("First Name:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setBounds(49, 173, 100, 19);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblLastName = new JLabel("Last Name:");
-		lblLastName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblLastName.setBounds(49, 202, 114, 19);
+		lblLastName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(lblLastName);
 		
 		JLabel lblUsername = new JLabel("Username:");
-		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblUsername.setBounds(323, 202, 76, 19);
+		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblPassword.setBounds(323, 231, 76, 19);
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(lblPassword);
 		
 		JLabel lblReenterPassword = new JLabel("Re-enter Password:");
-		lblReenterPassword.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblReenterPassword.setBounds(323, 264, 147, 19);
+		lblReenterPassword.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(lblReenterPassword);
 		
 		JLabel lblEmail = new JLabel("Email:");
-		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblEmail.setBounds(323, 173, 76, 19);
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(lblEmail);
 		
 		txtfname = new JTextField();
@@ -153,50 +155,57 @@ public class RegisterFrame extends JFrame {
 		txtfname.setColumns(10);
 		
 		JLabel lblAge = new JLabel("Age:");
-		lblAge.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblAge.setBounds(49, 231, 76, 19);
+		lblAge.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(lblAge);
 		
 		JLabel lblGender = new JLabel("Gender: ");
-		lblGender.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblGender.setBounds(49, 256, 76, 19);
+		lblGender.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(lblGender);
 		
 		JLabel lblAddress = new JLabel("Address:");
-		lblAddress.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblAddress.setBounds(49, 282, 76, 19);
+		lblAddress.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(lblAddress);
 		
 		txtlname = new JTextField();
-		txtlname.setColumns(10);
 		txtlname.setBounds(141, 204, 147, 19);
+		txtlname.setColumns(10);
 		contentPane.add(txtlname);
 		
 		txtage = new JTextField();
-		txtage.setColumns(10);
 		txtage.setBounds(141, 231, 147, 19);
+		txtage.setColumns(10);
 		contentPane.add(txtage);
 		
 		txtaddress = new JTextField();
-		txtaddress.setColumns(10);
 		txtaddress.setBounds(141, 284, 147, 37);
+		txtaddress.setColumns(10);
 		contentPane.add(txtaddress);
 		
 		txtemail = new JTextField();
-		txtemail.setColumns(10);
 		txtemail.setBounds(458, 175, 163, 19);
+		txtemail.setColumns(10);
 		contentPane.add(txtemail);
 		
 		JsUsername = new JTextField();
-		JsUsername.setColumns(10);
 		JsUsername.setBounds(458, 202, 163, 19);
+		JsUsername.setColumns(10);
 		contentPane.add(JsUsername);
+		
+		JCheckBox PrivacyTerms = new JCheckBox("I have read and agree to the ");
+		PrivacyTerms.setBounds(141, 347, 183, 21);
+		contentPane.add(PrivacyTerms);
+		PrivacyTerms.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		PrivacyTerms.setBackground(new Color(204, 153, 102));
 		
 		//Array
 		//ArrayList<String[]> listOfUser = new ArrayList<String[]>();
 		
 		
 		JPanel jSRegister = new JPanel();
+		jSRegister.setBounds(141, 377, 172, 48);
 		//ArrayList<String[]> listOfUser = new ArrayList<String[]>();
 		
 		jSRegister.addMouseListener(new MouseAdapter() {
@@ -208,6 +217,7 @@ public class RegisterFrame extends JFrame {
 				//FrameDashboard second = new FrameDashboard();
 				//second.setVisible(true);
 				String fname, lname, age, address,  email, user, pass, pass2;
+				boolean privacy;
 				fname = txtfname.getText();
 				lname = txtlname.getText();
 				age = txtage.getText();
@@ -216,6 +226,7 @@ public class RegisterFrame extends JFrame {
 				user = JsUsername.getText();
 				pass = jSPassword.getText();
 				pass2 =jSPassword2.getText();
+				privacy = PrivacyTerms.isSelected();
 				
 				if (fname.equals("") ||lname.equals("") || age.equals("") || address.equals("")|| 
 						email.equals("")||pass.equals("")) {
@@ -223,7 +234,10 @@ public class RegisterFrame extends JFrame {
 				} else if(!(new String(jSPassword.getPassword()).equals(new String(jSPassword2.getPassword())))) {
 						lblValidate.setText("Password didn't match!");
 					
-				}else {
+				} else if (privacy ==  false) {
+					lblValidate.setText("Please agree to the Privacy and Terms Conditions!");
+				}
+				else {
 					FrameLogin.email.add(email);
 					FrameLogin.username.add(user);
 					FrameLogin.password.add(pass);
@@ -233,14 +247,8 @@ public class RegisterFrame extends JFrame {
 				JOptionPane.showMessageDialog(null, "Registered!");
 				RegisterFrame.this.dispose();
 				SecurityQuestion secure = new SecurityQuestion();
-				secure.setVisible(true);
-				
-				
-				}
-				
-				
-				
-				
+				secure.setVisible(true);			
+				}	
 			}
 				/**if(txtfname.getText().equals("") ||txtlname.getText().equals("") ||txtage.getText().equals("") ||
 						txtaddress.getText().equals("") || txtemail.getText().equals("")||
@@ -282,7 +290,6 @@ public class RegisterFrame extends JFrame {
 		});
 		jSRegister.setBorder(new LineBorder(new Color(153, 153, 153), 4));
 		jSRegister.setBackground(new Color(255, 153, 204));
-		jSRegister.setBounds(141, 362, 172, 48);
 		contentPane.add(jSRegister);
 		jSRegister.setLayout(null);
 		
@@ -293,60 +300,61 @@ public class RegisterFrame extends JFrame {
 		jSRegister.add(lblbuttonRegister);
 		
 		JRadioButton rdbFemale = new JRadioButton("Female");
+		rdbFemale.setBounds(141, 257, 76, 21);
 		rdbFemale.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		rdbFemale.setBackground(new Color(204, 153, 102));
-		rdbFemale.setBounds(141, 257, 76, 21);
 		contentPane.add(rdbFemale);
 		
 		JRadioButton rdbMale = new JRadioButton("Male");
+		rdbMale.setBounds(222, 257, 76, 21);
 		rdbMale.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		rdbMale.setBackground(new Color(204, 153, 102));
-		rdbMale.setBounds(222, 257, 76, 21);
 		contentPane.add(rdbMale);
 		
 		
 		
 		JLabel lblAGE = new JLabel("");
-		lblAGE.setForeground(Color.RED);
 		lblAGE.setBounds(10, 231, 29, 23);
+		lblAGE.setForeground(Color.RED);
 		contentPane.add(lblAGE);
 		
 		JLabel lblLN = new JLabel("");
-		lblLN.setForeground(Color.RED);
 		lblLN.setBounds(10, 202, 29, 23);
+		lblLN.setForeground(Color.RED);
 		contentPane.add(lblLN);
 		
 		JLabel lblADDRESS = new JLabel("");
-		lblADDRESS.setForeground(Color.RED);
 		lblADDRESS.setBounds(10, 287, 29, 23);
+		lblADDRESS.setForeground(Color.RED);
 		contentPane.add(lblADDRESS);
 		
 		JLabel lblGENDER = new JLabel("");
-		lblGENDER.setForeground(Color.RED);
 		lblGENDER.setBounds(10, 258, 29, 23);
+		lblGENDER.setForeground(Color.RED);
 		contentPane.add(lblGENDER);
 		
 		JLabel lblEMAIL = new JLabel("");
-		lblEMAIL.setForeground(Color.RED);
 		lblEMAIL.setBounds(293, 173, 20, 23);
+		lblEMAIL.setForeground(Color.RED);
 		contentPane.add(lblEMAIL);
 		
 		JLabel lblUSER = new JLabel("");
-		lblUSER.setForeground(Color.RED);
 		lblUSER.setBounds(293, 207, 20, 23);
+		lblUSER.setForeground(Color.RED);
 		contentPane.add(lblUSER);
 		
 		JLabel lblPASS = new JLabel("");
-		lblPASS.setForeground(Color.RED);
 		lblPASS.setBounds(293, 236, 20, 23);
+		lblPASS.setForeground(Color.RED);
 		contentPane.add(lblPASS);
 		
 		JLabel lblPASS2 = new JLabel("");
-		lblPASS2.setForeground(Color.RED);
 		lblPASS2.setBounds(293, 269, 20, 23);
+		lblPASS2.setForeground(Color.RED);
 		contentPane.add(lblPASS2);
 		
 		JPanel panelClear = new JPanel();
+		panelClear.setBounds(341, 377, 172, 48);
 		panelClear.addMouseListener(new MouseAdapter() {
 			//To clear or reset
 			@Override
@@ -384,7 +392,6 @@ public class RegisterFrame extends JFrame {
 		panelClear.setLayout(null);
 		panelClear.setBorder(new LineBorder(new Color(153, 153, 153), 4));
 		panelClear.setBackground(new Color(255, 153, 204));
-		panelClear.setBounds(341, 362, 172, 48);
 		contentPane.add(panelClear);
 		
 		JLabel lblClear = new JLabel("CLEAR");
@@ -394,18 +401,19 @@ public class RegisterFrame extends JFrame {
 		panelClear.add(lblClear);
 		
 		jSPassword = new JPasswordField();
+		jSPassword.setBounds(458, 233, 163, 19);
 		jSPassword.setEchoChar('*');
 		jSPassword.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		jSPassword.setBounds(458, 233, 163, 19);
 		contentPane.add(jSPassword);
 		
 		jSPassword2 = new JPasswordField();
+		jSPassword2.setBounds(458, 266, 163, 19);
 		jSPassword2.setEchoChar('*');
 		jSPassword2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		jSPassword2.setBounds(458, 266, 163, 19);
 		contentPane.add(jSPassword2);
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Show Password");
+		chckbxNewCheckBox.setBounds(505, 283, 116, 21);
 		chckbxNewCheckBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (chckbxNewCheckBox.isSelected()) {
@@ -418,7 +426,6 @@ public class RegisterFrame extends JFrame {
 			}
 		});
 		chckbxNewCheckBox.setBackground(new Color(204, 153, 102));
-		chckbxNewCheckBox.setBounds(505, 283, 116, 21);
 		contentPane.add(chckbxNewCheckBox);
 		
 		//JLabel lblValidate = new JLabel(".");
@@ -427,11 +434,42 @@ public class RegisterFrame extends JFrame {
 		//lblValidate.setBounds(172, 389, 341, 21);
 		//contentPane.add(lblValidate);
 		setUndecorated(true);
+		lblValidate.setBounds(151, 320, 362, 21);
 		lblValidate.setHorizontalAlignment(SwingConstants.CENTER);
-		
-		lblValidate.setBounds(151, 331, 362, 21);
 		contentPane.add(lblValidate);
 		lblValidate.setForeground(new Color(204, 0, 0));
 		lblValidate.setFont(new Font("Berlin Sans FB", Font.PLAIN, 14));
+		
+		
+		
+		txtPrivacy = new JTextField();
+		txtPrivacy.setBounds(323, 348, 76, 19);
+		txtPrivacy.setForeground(new Color(0, 102, 204));
+		txtPrivacy.setBorder(null);
+		txtPrivacy.setBackground(new Color(204, 153, 102));
+		txtPrivacy.setText("Terms of Use");
+		txtPrivacy.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		contentPane.add(txtPrivacy);
+		txtPrivacy.setColumns(10);
+		
+		txtAnd = new JTextField();
+		txtAnd.setBounds(400, 348, 20, 19);
+		txtAnd.setText("and");
+		txtAnd.setForeground(new Color(0, 0, 0));
+		txtAnd.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		txtAnd.setColumns(10);
+		txtAnd.setBorder(null);
+		txtAnd.setBackground(new Color(204, 153, 102));
+		contentPane.add(txtAnd);
+		
+		txtPrivacyPol = new JTextField();
+		txtPrivacyPol.setText(" Privacy Policy.");
+		txtPrivacyPol.setForeground(new Color(0, 102, 204));
+		txtPrivacyPol.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		txtPrivacyPol.setColumns(10);
+		txtPrivacyPol.setBorder(null);
+		txtPrivacyPol.setBackground(new Color(204, 153, 102));
+		txtPrivacyPol.setBounds(419, 348, 83, 19);
+		contentPane.add(txtPrivacyPol);
 	}
 }

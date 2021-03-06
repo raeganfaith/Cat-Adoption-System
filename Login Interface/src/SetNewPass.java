@@ -80,12 +80,10 @@ public class SetNewPass extends JFrame {
 					SetNewPass.this.dispose();
 				}
 			}
-			
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				CloseButton.setForeground(Color.RED);
 			}
-			
 			@Override
 			public void mouseExited(MouseEvent e) {
 				CloseButton.setForeground(Color.BLACK);
