@@ -39,7 +39,6 @@ public class RegisterFrame extends JFrame {
 	private JPasswordField jSPassword;
 	private JPasswordField jSPassword2;
 	private JLabel lblValidate = new JLabel("");
-	private JTextField txtPrivacy;
 	private JTextField txtAnd;
 	private JTextField txtPrivacyPol;
 	//public static ArrayList <String> email = new ArrayList();
@@ -202,11 +201,9 @@ public class RegisterFrame extends JFrame {
 		
 		//Array
 		//ArrayList<String[]> listOfUser = new ArrayList<String[]>();
-		
-		
+			
 		JPanel jSRegister = new JPanel();
 		jSRegister.setBounds(141, 377, 172, 48);
-		//ArrayList<String[]> listOfUser = new ArrayList<String[]>();
 		
 		jSRegister.addMouseListener(new MouseAdapter() {
 			
@@ -250,25 +247,7 @@ public class RegisterFrame extends JFrame {
 				secure.setVisible(true);			
 				}	
 			}
-				/**if(txtfname.getText().equals("") ||txtlname.getText().equals("") ||txtage.getText().equals("") ||
-						txtaddress.getText().equals("") || txtemail.getText().equals("")||
-						JsUsername.getText().equals("") || jSPassword.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Incomplete Input!");
-					//lblValidate.setText("");
-					//RegisterFrame.this.dispose();			
-					//RegisterFrame second = new RegisterFrame();
-					//second.setVisible(true);		
-					if(txtpassword2.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Please Validate your password!");
-					}
-				}else{
-					JOptionPane.showMessageDialog(null, "Successfully Registered!");
-					FrameLogin framelogin = new FrameLogin();
-					framelogin.setVisible(true);
-					RegisterFrame.this.dispose();
-				}		
-				}**/
-			
+				
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				jSRegister.setBackground(new Color(230, 130, 130));
@@ -440,20 +419,8 @@ public class RegisterFrame extends JFrame {
 		lblValidate.setForeground(new Color(204, 0, 0));
 		lblValidate.setFont(new Font("Berlin Sans FB", Font.PLAIN, 14));
 		
-		
-		
-		txtPrivacy = new JTextField();
-		txtPrivacy.setBounds(323, 348, 76, 19);
-		txtPrivacy.setForeground(new Color(0, 102, 204));
-		txtPrivacy.setBorder(null);
-		txtPrivacy.setBackground(new Color(204, 153, 102));
-		txtPrivacy.setText("Terms of Use");
-		txtPrivacy.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		contentPane.add(txtPrivacy);
-		txtPrivacy.setColumns(10);
-		
 		txtAnd = new JTextField();
-		txtAnd.setBounds(400, 348, 20, 19);
+		txtAnd.setBounds(401, 348, 20, 19);
 		txtAnd.setText("and");
 		txtAnd.setForeground(new Color(0, 0, 0));
 		txtAnd.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -471,5 +438,11 @@ public class RegisterFrame extends JFrame {
 		txtPrivacyPol.setBackground(new Color(204, 153, 102));
 		txtPrivacyPol.setBounds(419, 348, 83, 19);
 		contentPane.add(txtPrivacyPol);
+		
+		JLabel lblNewLabel_1 = new JLabel("Terms of Use");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel_1.setForeground(new Color(0, 102, 255));
+		lblNewLabel_1.setBounds(323, 351, 76, 13);
+		contentPane.add(lblNewLabel_1);
 	}
 }
