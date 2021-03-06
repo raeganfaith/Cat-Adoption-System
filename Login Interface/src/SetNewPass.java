@@ -90,7 +90,7 @@ public class SetNewPass extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				FrameLogin creates = new FrameLogin();
-				String email,userr,newpass,newpass2;
+				String userr,newpass,newpass2;
 				userr = txtusernamenp.getText();
 				newpass = txtnewpass.getText();
 				newpass2 = txtnewpass2.getText();

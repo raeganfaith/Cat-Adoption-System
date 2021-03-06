@@ -37,7 +37,7 @@ public class RegisterFrame extends JFrame {
 	private JTextField txtemail;
 	private JTextField JsUsername;
 	private JPasswordField jSPassword;
-	private JPasswordField txtpassword2;
+	private JPasswordField jSPassword2;
 	private JLabel lblValidate = new JLabel("");
 	//public static ArrayList <String> email = new ArrayList();
 	//public static ArrayList <String> username = new ArrayList();
@@ -215,15 +215,19 @@ public class RegisterFrame extends JFrame {
 				email = txtemail.getText();
 				user = JsUsername.getText();
 				pass = jSPassword.getText();
+				pass2 =jSPassword2.getText();
+				
 				if (fname.equals("") ||lname.equals("") || age.equals("") || address.equals("")|| 
 						email.equals("")||pass.equals("")) {
-					JOptionPane.showMessageDialog(null, "Please input all requirements!");
+					lblValidate.setText("Please input all requirements!");
+				} else if(!(new String(jSPassword.getPassword()).equals(new String(jSPassword2.getPassword())))) {
+						lblValidate.setText("Password didn't match!");
+					
 				}else {
 					FrameLogin.email.add(email);
 					FrameLogin.username.add(user);
 					FrameLogin.password.add(pass);
-					
-					
+						
 					create.Back();
 					create.setVisible(true);
 				JOptionPane.showMessageDialog(null, "Registered!");
@@ -278,7 +282,7 @@ public class RegisterFrame extends JFrame {
 		});
 		jSRegister.setBorder(new LineBorder(new Color(153, 153, 153), 4));
 		jSRegister.setBackground(new Color(255, 153, 204));
-		jSRegister.setBounds(141, 331, 172, 48);
+		jSRegister.setBounds(141, 362, 172, 48);
 		contentPane.add(jSRegister);
 		jSRegister.setLayout(null);
 		
@@ -300,10 +304,7 @@ public class RegisterFrame extends JFrame {
 		rdbMale.setBounds(222, 257, 76, 21);
 		contentPane.add(rdbMale);
 		
-		JLabel lblloginmessage = new JLabel("");
-		lblloginmessage.setHorizontalAlignment(SwingConstants.CENTER);
-		lblloginmessage.setBounds(141, 308, 372, 21);
-		contentPane.add(lblloginmessage);
+		
 		
 		JLabel lblAGE = new JLabel("");
 		lblAGE.setForeground(Color.RED);
@@ -357,7 +358,7 @@ public class RegisterFrame extends JFrame {
 				txtemail.setText("");
 				JsUsername.setText("");
 				jSPassword.setText("");
-				txtpassword2.setText("");
+				jSPassword2.setText("");
 			}
 			
 			@Override
@@ -383,7 +384,7 @@ public class RegisterFrame extends JFrame {
 		panelClear.setLayout(null);
 		panelClear.setBorder(new LineBorder(new Color(153, 153, 153), 4));
 		panelClear.setBackground(new Color(255, 153, 204));
-		panelClear.setBounds(341, 331, 172, 48);
+		panelClear.setBounds(341, 362, 172, 48);
 		contentPane.add(panelClear);
 		
 		JLabel lblClear = new JLabel("CLEAR");
@@ -398,21 +399,21 @@ public class RegisterFrame extends JFrame {
 		jSPassword.setBounds(458, 233, 163, 19);
 		contentPane.add(jSPassword);
 		
-		txtpassword2 = new JPasswordField();
-		txtpassword2.setEchoChar('*');
-		txtpassword2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		txtpassword2.setBounds(458, 266, 163, 19);
-		contentPane.add(txtpassword2);
+		jSPassword2 = new JPasswordField();
+		jSPassword2.setEchoChar('*');
+		jSPassword2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		jSPassword2.setBounds(458, 266, 163, 19);
+		contentPane.add(jSPassword2);
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Show Password");
 		chckbxNewCheckBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (chckbxNewCheckBox.isSelected()) {
 					jSPassword.setEchoChar((char)0);
-					txtpassword2.setEchoChar((char)0);
+					jSPassword2.setEchoChar((char)0);
 				}else {
 					jSPassword.setEchoChar('*');
-					txtpassword2.setEchoChar('*');
+					jSPassword2.setEchoChar('*');
 				}
 			}
 		});
@@ -420,11 +421,17 @@ public class RegisterFrame extends JFrame {
 		chckbxNewCheckBox.setBounds(505, 283, 116, 21);
 		contentPane.add(chckbxNewCheckBox);
 		
-		JLabel lblValidate = new JLabel("");
-		lblValidate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblValidate.setForeground(Color.RED);
-		lblValidate.setBounds(172, 389, 341, 21);
-		contentPane.add(lblValidate);
+		//JLabel lblValidate = new JLabel(".");
+		//lblValidate.setHorizontalAlignment(SwingConstants.CENTER);
+		//lblValidate.setForeground(Color.RED);
+		//lblValidate.setBounds(172, 389, 341, 21);
+		//contentPane.add(lblValidate);
 		setUndecorated(true);
+		lblValidate.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		lblValidate.setBounds(151, 331, 362, 21);
+		contentPane.add(lblValidate);
+		lblValidate.setForeground(new Color(204, 0, 0));
+		lblValidate.setFont(new Font("Berlin Sans FB", Font.PLAIN, 14));
 	}
 }

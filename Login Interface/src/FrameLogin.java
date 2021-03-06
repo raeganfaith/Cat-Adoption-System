@@ -182,15 +182,18 @@ public class FrameLogin extends JFrame {
 				lblLoginMessage.setText("Username and Password didn't match!");//For Validation
 			}**/
 				if (username.contains(user)&&password.contains(pass)) {
-					JOptionPane.showMessageDialog(null,"You Successfully logged in!");
+					JOptionPane.showMessageDialog(null,"Login Successful!");
 					FrameDashboard second = new FrameDashboard();
 					second.setVisible(true);
 					 //panel.hide();
 					//if(username.contains(userr)&&password.contains(newpass)) {
 					//	JOptionPane.showMessageDialog(null,"You Successfully logged in!");
 					//}
-				} else {
-					JOptionPane.showMessageDialog(null,"Failed to logged in!");
+				}else if(username.isEmpty()&&password.isEmpty()) {
+					lblLoginMessage.setText("Please input all requirements!");
+				
+				}else {
+					lblLoginMessage.setText("Username and Password didn't match!");
 				}
 		}	
 			//Hovering buttons
