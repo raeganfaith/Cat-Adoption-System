@@ -225,8 +225,8 @@ public class FrameLogin extends JFrame {
 		lblNewLabel.setBounds(10, 10, 70, 21);
 		pnlBtnLogin.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("X");
-		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+		JLabel CloseButton = new JLabel("X");
+		CloseButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
@@ -235,17 +235,17 @@ public class FrameLogin extends JFrame {
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				lblNewLabel_1.setForeground(Color.RED);
+				CloseButton.setForeground(Color.RED);
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				lblNewLabel_1.setForeground(Color.BLACK);
+				CloseButton.setForeground(Color.BLACK);
 			}
 		});
-		lblNewLabel_1.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(570, 0, 30, 30);
-		contentPane.add(lblNewLabel_1);
+		CloseButton.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		CloseButton.setHorizontalAlignment(SwingConstants.CENTER);
+		CloseButton.setBounds(570, 0, 30, 30);
+		contentPane.add(CloseButton);
 		
 		JPanel panelbtnRegister = new JPanel();
 		panelbtnRegister.addMouseListener(new MouseAdapter() {
@@ -277,7 +277,7 @@ public class FrameLogin extends JFrame {
 				panelbtnRegister.setBackground(new Color(153, 153, 153));
 			}
 		});
-		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+		CloseButton.addMouseListener(new MouseAdapter() {
 			
 		});
 		panelbtnRegister.setLayout(null);

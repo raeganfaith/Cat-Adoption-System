@@ -44,18 +44,21 @@ public class SetNewPass extends JFrame {
 	public SetNewPass() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 858, 537);
+		setBounds(100, 100, 646, 435);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.PINK);
+		contentPane.setForeground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		JPanel contentPane_1 = new JPanel();
+		contentPane_1.setBounds(5, 5, 636, 425);
 		setLocationRelativeTo(null);
+		contentPane.setLayout(null);
 		contentPane_1.setLayout(null);
 		contentPane_1.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane_1.setBackground(new Color(204, 153, 102));
-		contentPane.add(contentPane_1, BorderLayout.CENTER);
+		contentPane.add(contentPane_1);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
@@ -66,23 +69,41 @@ public class SetNewPass extends JFrame {
 		JLabel lblSetYourNew = new JLabel("Set your New Password");
 		lblSetYourNew.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSetYourNew.setFont(new Font("Cher Faust", Font.PLAIN, 26));
-		lblSetYourNew.setBounds(166, 10, 504, 85);
+		lblSetYourNew.setBounds(40, 10, 504, 85);
 		panel.add(lblSetYourNew);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("X");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(820, 0, 30, 30);
-		panel.add(lblNewLabel_1_1);
+		JLabel CloseButton = new JLabel("X");
+		CloseButton.addMouseListener(new MouseAdapter() {	
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
+					SetNewPass.this.dispose();
+				}
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				CloseButton.setForeground(Color.RED);
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				CloseButton.setForeground(Color.BLACK);
+			}
+		});
+		CloseButton.setHorizontalAlignment(SwingConstants.CENTER);
+		CloseButton.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		CloseButton.setBounds(601, 10, 30, 30);
+		panel.add(CloseButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Successfully Retrieved your account!");
 		lblNewLabel_1.setFont(new Font("Cher Faust", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(222, 139, 391, 28);
+		lblNewLabel_1.setBounds(58, 120, 391, 28);
 		contentPane_1.add(lblNewLabel_1);
 		
 		txtusernamenp = new JTextField();
 		txtusernamenp.setColumns(10);
-		txtusernamenp.setBounds(101, 221, 290, 33);
+		txtusernamenp.setBounds(68, 196, 290, 33);
 		contentPane_1.add(txtusernamenp);
 		
 		JPanel jSSumbit = new JPanel();
@@ -115,7 +136,7 @@ public class SetNewPass extends JFrame {
 		jSSumbit.setLayout(null);
 		jSSumbit.setBorder(new LineBorder(new Color(153, 153, 153), 4));
 		jSSumbit.setBackground(new Color(255, 153, 204));
-		jSSumbit.setBounds(318, 438, 172, 48);
+		jSSumbit.setBounds(78, 371, 172, 48);
 		contentPane_1.add(jSSumbit);
 		
 		JLabel lblSubmit = new JLabel("SUBMIT");
@@ -126,27 +147,27 @@ public class SetNewPass extends JFrame {
 		
 		JLabel lblNewLabel_3_3_1 = new JLabel("New Password:");
 		lblNewLabel_3_3_1.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_3_1.setBounds(101, 268, 237, 13);
+		lblNewLabel_3_3_1.setBounds(58, 239, 237, 13);
 		contentPane_1.add(lblNewLabel_3_3_1);
 		
 		txtnewpass = new JTextField();
 		txtnewpass.setColumns(10);
-		txtnewpass.setBounds(101, 293, 290, 33);
+		txtnewpass.setBounds(68, 262, 290, 33);
 		contentPane_1.add(txtnewpass);
 		
 		JLabel lblNewLabel_3_3_2 = new JLabel("Re-enter New Password");
 		lblNewLabel_3_3_2.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_3_2.setBounds(101, 351, 237, 13);
+		lblNewLabel_3_3_2.setBounds(58, 305, 237, 13);
 		contentPane_1.add(lblNewLabel_3_3_2);
 		
 		txtnewpass2 = new JTextField();
 		txtnewpass2.setColumns(10);
-		txtnewpass2.setBounds(101, 376, 290, 33);
+		txtnewpass2.setBounds(68, 328, 290, 33);
 		contentPane_1.add(txtnewpass2);
 		
 		JLabel lblNewLabel_3_3_3 = new JLabel("You can set your new username or use your previouse one");
 		lblNewLabel_3_3_3.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_3_3.setBounds(96, 188, 455, 28);
+		lblNewLabel_3_3_3.setBounds(58, 158, 455, 28);
 		contentPane_1.add(lblNewLabel_3_3_3);
 	}
 }
