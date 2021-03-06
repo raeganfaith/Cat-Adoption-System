@@ -14,13 +14,14 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JPasswordField;
 
 public class SetNewPass extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtusernamenp;
-	private JTextField txtnewpass;
-	private JTextField txtnewpass2;
+	private JPasswordField passwordField;
+	private JPasswordField passwordField2;
 
 	/**
 	 * Launch the application.
@@ -111,13 +112,15 @@ public class SetNewPass extends JFrame {
 				FrameLogin creates = new FrameLogin();
 				String userr,newpass,newpass2;
 				userr = txtusernamenp.getText();
-				newpass = txtnewpass.getText();
-				newpass2 = txtnewpass2.getText();
+				newpass = passwordField.getText();
+				newpass2 = passwordField.getText();
 				
 				if(userr.equals("")|| newpass.equals("")|| newpass2.equals("")) {
 					JOptionPane.showMessageDialog(null, "Please input all requirements!");
-				} 
-				else {
+				} else if(!(new String(passwordField.getPassword()).equals(new String(passwordField2.getPassword())))) {
+					//lblValidate.setText("Password didn't match!"); 
+					JOptionPane.showMessageDialog(null, "Password didn't match!");
+				} else {
 					FrameLogin.username.add(userr);
 					FrameLogin.password.add(newpass);
 					creates.Back();
@@ -129,6 +132,22 @@ public class SetNewPass extends JFrame {
 					framelogin.setVisible(true);
 				}
 				
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				jSSumbit.setBackground(new Color(230, 130, 130));
+			}	
+			@Override
+			public void mouseExited(MouseEvent e) {
+				jSSumbit.setBackground(new Color(255, 153, 153));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				jSSumbit.setBackground(new Color(285, 183, 183));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				jSSumbit.setBackground(new Color(230, 130, 130));
 			}
 		});
 		jSSumbit.setLayout(null);
@@ -148,24 +167,24 @@ public class SetNewPass extends JFrame {
 		lblNewLabel_3_3_1.setBounds(58, 239, 237, 13);
 		contentPane_1.add(lblNewLabel_3_3_1);
 		
-		txtnewpass = new JTextField();
-		txtnewpass.setColumns(10);
-		txtnewpass.setBounds(68, 262, 290, 33);
-		contentPane_1.add(txtnewpass);
-		
 		JLabel lblNewLabel_3_3_2 = new JLabel("Re-enter New Password");
 		lblNewLabel_3_3_2.setFont(new Font("Cher Faust", Font.PLAIN, 15));
 		lblNewLabel_3_3_2.setBounds(58, 305, 237, 13);
 		contentPane_1.add(lblNewLabel_3_3_2);
 		
-		txtnewpass2 = new JTextField();
-		txtnewpass2.setColumns(10);
-		txtnewpass2.setBounds(68, 328, 290, 33);
-		contentPane_1.add(txtnewpass2);
-		
 		JLabel lblNewLabel_3_3_3 = new JLabel("You can set your new username or use your previouse one");
 		lblNewLabel_3_3_3.setFont(new Font("Cher Faust", Font.PLAIN, 15));
 		lblNewLabel_3_3_3.setBounds(58, 158, 455, 28);
 		contentPane_1.add(lblNewLabel_3_3_3);
+		
+		passwordField = new JPasswordField();
+		passwordField.setEchoChar('*');
+		passwordField.setBounds(68, 262, 290, 33);
+		contentPane_1.add(passwordField);
+		
+		passwordField2 = new JPasswordField();
+		passwordField2.setEchoChar('*');
+		passwordField2.setBounds(68, 325, 290, 33);
+		contentPane_1.add(passwordField2);
 	}
 }

@@ -122,6 +122,23 @@ public class PrivacyTerms extends JFrame {
 					
 				}
 			}
+			//Hovering buttons
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				pnlAgreeButton.setBackground(new Color(230, 130, 130));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				pnlAgreeButton.setBackground(new Color(255, 153, 153));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				pnlAgreeButton.setBackground(new Color(285, 183, 183));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				pnlAgreeButton.setBackground(new Color(230, 130, 130));
+			}
 		});
 		pnlAgreeButton.setLayout(null);
 		pnlAgreeButton.setBorder(new LineBorder(new Color(0, 0, 0)));

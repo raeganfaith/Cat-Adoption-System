@@ -25,6 +25,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ButtonGroup;
 
 public class RegisterFrame extends JFrame {
 	private Image img_neko = new ImageIcon(FrameLogin.class.getResource("res/logo.png")).getImage().getScaledInstance(180, 130, Image.SCALE_SMOOTH);
@@ -40,6 +41,7 @@ public class RegisterFrame extends JFrame {
 	private JPasswordField jSPassword2;
 	private JLabel lblValidate = new JLabel("");
 	private JTextField txtAnd;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 	//public static ArrayList <String> email = new ArrayList();
 	//public static ArrayList <String> username = new ArrayList();
 	//public static ArrayList <String> password = new ArrayList();
@@ -198,6 +200,20 @@ public class RegisterFrame extends JFrame {
 		PrivacyTerms.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		PrivacyTerms.setBackground(new Color(204, 153, 102));
 		
+		JRadioButton rdbMale = new JRadioButton("Male");
+		buttonGroup.add(rdbMale);
+		rdbMale.setBounds(222, 257, 76, 21);
+		rdbMale.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbMale.setBackground(new Color(204, 153, 102));
+		contentPane.add(rdbMale);
+		
+		JRadioButton rdbFemale = new JRadioButton("Female");
+		buttonGroup.add(rdbFemale);
+		rdbFemale.setBounds(141, 257, 76, 21);
+		rdbFemale.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbFemale.setBackground(new Color(204, 153, 102));
+		contentPane.add(rdbFemale);
+		
 		//Array
 		//ArrayList<String[]> listOfUser = new ArrayList<String[]>();
 			
@@ -213,7 +229,7 @@ public class RegisterFrame extends JFrame {
 				//FrameDashboard second = new FrameDashboard();
 				//second.setVisible(true);
 				String fname, lname, age, address,  email, user, pass, pass2;
-				boolean privacy;
+				boolean female, male, privacy;
 				fname = txtfname.getText();
 				lname = txtlname.getText();
 				age = txtage.getText();
@@ -222,18 +238,21 @@ public class RegisterFrame extends JFrame {
 				user = JsUsername.getText();
 				pass = jSPassword.getText();
 				pass2 =jSPassword2.getText();
+				
+				//male = rdbMale.isSelected();
+				//female = rdbFemale.isSelected();
 				privacy = PrivacyTerms.isSelected();
 				
 				if (fname.equals("") ||lname.equals("") || age.equals("") || address.equals("")|| 
 						email.equals("")||pass.equals("")) {
 					lblValidate.setText("Please input all requirements!");
 				} else if(!(new String(jSPassword.getPassword()).equals(new String(jSPassword2.getPassword())))) {
-						lblValidate.setText("Password didn't match!");
-					
-				} else if (privacy ==  false) {
+						lblValidate.setText("Password didn't match!");	
+				}else if(!(rdbMale.isSelected() || rdbFemale.isSelected())) {
+					lblValidate.setText("Please Select Gender!");
+				} else if (!(privacy ==  true)) {
 					lblValidate.setText("Please agree to the Privacy and Terms Conditions!");
-				}
-				else {
+				} else {
 					FrameLogin.email.add(email);
 					FrameLogin.username.add(user);
 					FrameLogin.password.add(pass);
@@ -276,20 +295,6 @@ public class RegisterFrame extends JFrame {
 		lblbuttonRegister.setHorizontalAlignment(SwingConstants.CENTER);
 		lblbuttonRegister.setBounds(20, 10, 131, 28);
 		jSRegister.add(lblbuttonRegister);
-		
-		JRadioButton rdbFemale = new JRadioButton("Female");
-		rdbFemale.setBounds(141, 257, 76, 21);
-		rdbFemale.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		rdbFemale.setBackground(new Color(204, 153, 102));
-		contentPane.add(rdbFemale);
-		
-		JRadioButton rdbMale = new JRadioButton("Male");
-		rdbMale.setBounds(222, 257, 76, 21);
-		rdbMale.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		rdbMale.setBackground(new Color(204, 153, 102));
-		contentPane.add(rdbMale);
-		
-		
 		
 		JLabel lblAGE = new JLabel("");
 		lblAGE.setBounds(10, 231, 29, 23);
@@ -337,6 +342,7 @@ public class RegisterFrame extends JFrame {
 			//To clear or reset
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showConfirmDialog(null, "Are you sure you want to clear your data?", "Warning", JOptionPane.WARNING_MESSAGE,JOptionPane.OK_CANCEL_OPTION);
 				txtfname.setText("");
 				txtlname.setText("");
 				txtage.setText("");
@@ -345,6 +351,8 @@ public class RegisterFrame extends JFrame {
 				JsUsername.setText("");
 				jSPassword.setText("");
 				jSPassword2.setText("");
+				buttonGroup.clearSelection();
+				//rdbFemale.setSelected(false);
 			}
 			
 			@Override

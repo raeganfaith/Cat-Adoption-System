@@ -2,6 +2,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -29,18 +32,36 @@ public class PanelDonate extends JPanel {
 		lblNewLabel.setBounds(38, 10, 442, 21);
 		add(lblNewLabel);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(128, 128, 128), 4));
-		panel.setBackground(new Color(255, 153, 204));
-		panel.setBounds(181, 409, 154, 45);
-		add(panel);
-		panel.setLayout(null);
+		JPanel pnlButtonDonate = new JPanel();
+		pnlButtonDonate.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				pnlButtonDonate.setBackground(new Color(230, 130, 130));
+			}	
+			@Override
+			public void mouseExited(MouseEvent e) {
+				pnlButtonDonate.setBackground(new Color(255, 153, 153));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				pnlButtonDonate.setBackground(new Color(285, 183, 183));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				pnlButtonDonate.setBackground(new Color(230, 130, 130));
+			}
+		});
+		pnlButtonDonate.setBorder(new LineBorder(new Color(128, 128, 128), 4));
+		pnlButtonDonate.setBackground(new Color(255, 153, 204));
+		pnlButtonDonate.setBounds(181, 409, 154, 45);
+		add(pnlButtonDonate);
+		pnlButtonDonate.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("DONATE");
 		lblNewLabel_1.setFont(new Font("Cher Faust", Font.PLAIN, 18));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(10, 10, 134, 25);
-		panel.add(lblNewLabel_1);
+		pnlButtonDonate.add(lblNewLabel_1);
 
 	}
 }

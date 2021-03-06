@@ -156,11 +156,28 @@ public class SecurityQuestion extends JFrame {
 				}
 				
 			}
+			//Hovering buttons
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				pnlSubmitBackup.setBackground(new Color(230, 130, 130));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				pnlSubmitBackup.setBackground(new Color(255, 153, 153));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				pnlSubmitBackup.setBackground(new Color(285, 183, 183));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				pnlSubmitBackup.setBackground(new Color(230, 130, 130));
+			}
 		});
 		pnlSubmitBackup.setLayout(null);
 		pnlSubmitBackup.setBorder(new LineBorder(new Color(0, 0, 0)));
 		pnlSubmitBackup.setBackground(new Color(255, 153, 153));
-		pnlSubmitBackup.setBounds(103, 422, 90, 40);
+		pnlSubmitBackup.setBounds(238, 422, 90, 40);
 		contentPane_1.add(pnlSubmitBackup);
 		
 		JLabel lblSubmit = new JLabel("SUBMIT");
@@ -169,19 +186,48 @@ public class SecurityQuestion extends JFrame {
 		lblSubmit.setBounds(10, 10, 70, 21);
 		pnlSubmitBackup.add(lblSubmit);
 		
-		JPanel panelbtnRegister = new JPanel();
-		panelbtnRegister.setLayout(null);
-		panelbtnRegister.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelbtnRegister.setBackground(new Color(153, 153, 153));
-		panelbtnRegister.setBounds(319, 422, 90, 40);
-		contentPane_1.add(panelbtnRegister);
+		JPanel panelbtnClear = new JPanel();
+		panelbtnClear.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showConfirmDialog(null, "Are you sure you want to clear your data?", "Warning", JOptionPane.WARNING_MESSAGE,JOptionPane.OK_CANCEL_OPTION);
+				txtquestion1.setText("");
+				txtquestion2.setText("");
+				txtquestion3.setText("");
+				txtemailbackup.setText("");
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panelbtnClear.setBackground(new Color(123, 123, 123));
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panelbtnClear.setBackground(new Color(153, 153, 153));
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				panelbtnClear.setBackground(new Color(193, 193, 193));
+			}
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				panelbtnClear.setBackground(new Color(153, 153, 153));
+			}
+		});
+		panelbtnClear.setLayout(null);
+		panelbtnClear.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelbtnClear.setBackground(new Color(153, 153, 153));
+		panelbtnClear.setBounds(438, 422, 90, 40);
+		contentPane_1.add(panelbtnClear);
 		
 		JLabel lblClear = new JLabel("CLEAR");
 		lblClear.setHorizontalAlignment(SwingConstants.CENTER);
 		lblClear.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblClear.setBackground(Color.PINK);
 		lblClear.setBounds(10, 10, 70, 21);
-		panelbtnRegister.add(lblClear);
+		panelbtnClear.add(lblClear);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Back-up email:");
 		lblNewLabel_2_1.setFont(new Font("Cher Faust", Font.PLAIN, 16));
