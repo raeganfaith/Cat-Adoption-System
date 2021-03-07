@@ -223,7 +223,7 @@ public class FrameLogin extends JFrame {
 		panelbtnRegister.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(JOptionPane.showConfirmDialog(null, "Do you want to register to a new account?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
+				if(JOptionPane.showConfirmDialog(null, "Do you want to create to a new account?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
 					RegisterFrame third = new RegisterFrame();
 					third.setVisible(true);
 			}
@@ -253,7 +253,8 @@ public class FrameLogin extends JFrame {
 		panelbtnRegister.setBounds(336, 331, 90, 40);
 		contentPane.add(panelbtnRegister);
 		
-		JLabel lblRegister = new JLabel(" REGISTER");
+		JLabel lblRegister = new JLabel(" SIGN UP");
+		lblRegister.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRegister.setBackground(Color.PINK);
 		lblRegister.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblRegister.setBounds(10, 10, 70, 21);

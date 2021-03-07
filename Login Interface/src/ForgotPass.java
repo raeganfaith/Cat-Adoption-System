@@ -173,9 +173,9 @@ public class ForgotPass extends JFrame {
 			}
 		});
 		jSSumbit.setLayout(null);
-		jSSumbit.setBorder(new LineBorder(new Color(153, 153, 153), 4));
-		jSSumbit.setBackground(new Color(255, 153, 204));
-		jSSumbit.setBounds(415, 364, 172, 48);
+		jSSumbit.setBorder(new LineBorder(Color.BLACK));
+		jSSumbit.setBackground(Color.PINK);
+		jSSumbit.setBounds(395, 361, 172, 48);
 		contentPane.add(jSSumbit);
 		
 		JLabel lblSubmit = new JLabel("SUBMIT");

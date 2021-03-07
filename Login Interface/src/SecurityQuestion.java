@@ -12,9 +12,14 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SecurityQuestion extends JFrame {
 
@@ -180,13 +185,13 @@ public class SecurityQuestion extends JFrame {
 		pnlSubmitBackup.setLayout(null);
 		pnlSubmitBackup.setBorder(new LineBorder(new Color(0, 0, 0)));
 		pnlSubmitBackup.setBackground(new Color(255, 153, 153));
-		pnlSubmitBackup.setBounds(106, 381, 90, 40);
+		pnlSubmitBackup.setBounds(226, 381, 124, 40);
 		contentPane_1.add(pnlSubmitBackup);
 		
 		JLabel lblSubmit = new JLabel("SUBMIT");
 		lblSubmit.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSubmit.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblSubmit.setBounds(10, 10, 70, 21);
+		lblSubmit.setBounds(10, 10, 104, 21);
 		pnlSubmitBackup.add(lblSubmit);
 		
 		JPanel panelbtnClear = new JPanel();
@@ -222,14 +227,14 @@ public class SecurityQuestion extends JFrame {
 		panelbtnClear.setLayout(null);
 		panelbtnClear.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelbtnClear.setBackground(new Color(153, 153, 153));
-		panelbtnClear.setBounds(259, 381, 90, 40);
+		panelbtnClear.setBounds(461, 381, 124, 40);
 		contentPane_1.add(panelbtnClear);
 		
 		JLabel lblClear = new JLabel("CLEAR");
 		lblClear.setHorizontalAlignment(SwingConstants.CENTER);
 		lblClear.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblClear.setBackground(Color.PINK);
-		lblClear.setBounds(10, 10, 70, 21);
+		lblClear.setBounds(10, 10, 104, 21);
 		panelbtnClear.add(lblClear);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Back-up email:");
@@ -237,10 +242,31 @@ public class SecurityQuestion extends JFrame {
 		lblNewLabel_2_1.setBounds(48, 343, 106, 28);
 		contentPane_1.add(lblNewLabel_2_1);
 		
+		JLabel lblValidate = new JLabel("");
+		lblValidate.setForeground(Color.RED);
+		lblValidate.setFont(new Font("Tahoma", Font.ITALIC, 13));
+		lblValidate.setBounds(360, 343, 201, 23);
+		contentPane_1.add(lblValidate);
+		
 		txtemailbackup = new JTextField();
+		txtemailbackup.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{0,5}$";
+			Pattern patt = Pattern.compile(PATTERN);
+			Matcher match = patt.matcher(txtemailbackup.getText());
+			if(!match.matches()) {
+				lblValidate.setText("Please input valid email!");
+			} else {
+				lblValidate.setText(null);
+			}
+			}
+		});
 		txtemailbackup.setColumns(10);
 		txtemailbackup.setBounds(148, 343, 202, 28);
 		contentPane_1.add(txtemailbackup);
+		
+	
 		
 		
 	}

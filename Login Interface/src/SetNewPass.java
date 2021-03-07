@@ -47,13 +47,13 @@ public class SetNewPass extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 646, 435);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.LIGHT_GRAY);
+		contentPane.setBackground(new Color(204, 153, 102));
 		contentPane.setForeground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		JPanel contentPane_1 = new JPanel();
-		contentPane_1.setBounds(5, 5, 636, 425);
+		contentPane_1.setBounds(0, 0, 646, 430);
 		setLocationRelativeTo(null);
 		contentPane.setLayout(null);
 		contentPane_1.setLayout(null);
@@ -64,13 +64,13 @@ public class SetNewPass extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBackground(Color.GRAY);
-		panel.setBounds(0, 0, 850, 100);
+		panel.setBounds(0, 0, 646, 78);
 		contentPane_1.add(panel);
 		
 		JLabel lblSetYourNew = new JLabel("Set your New Password");
 		lblSetYourNew.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSetYourNew.setFont(new Font("Cher Faust", Font.PLAIN, 26));
-		lblSetYourNew.setBounds(40, 10, 504, 85);
+		lblSetYourNew.setBounds(40, 10, 504, 64);
 		panel.add(lblSetYourNew);
 		
 		JLabel CloseButton = new JLabel("X");
@@ -96,13 +96,14 @@ public class SetNewPass extends JFrame {
 		panel.add(CloseButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Successfully Retrieved your account!");
-		lblNewLabel_1.setFont(new Font("Cher Faust", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(58, 120, 391, 28);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(46, 102, 391, 28);
 		contentPane_1.add(lblNewLabel_1);
 		
 		txtusernamenp = new JTextField();
+		txtusernamenp.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtusernamenp.setColumns(10);
-		txtusernamenp.setBounds(68, 196, 290, 33);
+		txtusernamenp.setBounds(56, 178, 290, 33);
 		contentPane_1.add(txtusernamenp);
 		
 		JPanel jSSumbit = new JPanel();
@@ -151,9 +152,9 @@ public class SetNewPass extends JFrame {
 			}
 		});
 		jSSumbit.setLayout(null);
-		jSSumbit.setBorder(new LineBorder(new Color(153, 153, 153), 4));
-		jSSumbit.setBackground(new Color(255, 153, 204));
-		jSSumbit.setBounds(78, 371, 172, 48);
+		jSSumbit.setBorder(new LineBorder(Color.BLACK));
+		jSSumbit.setBackground(Color.PINK);
+		jSSumbit.setBounds(56, 372, 172, 48);
 		contentPane_1.add(jSSumbit);
 		
 		JLabel lblSubmit = new JLabel("SUBMIT");
@@ -163,28 +164,30 @@ public class SetNewPass extends JFrame {
 		jSSumbit.add(lblSubmit);
 		
 		JLabel lblNewLabel_3_3_1 = new JLabel("New Password:");
-		lblNewLabel_3_3_1.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_3_1.setBounds(58, 239, 237, 13);
+		lblNewLabel_3_3_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_3_3_1.setBounds(46, 221, 237, 13);
 		contentPane_1.add(lblNewLabel_3_3_1);
 		
 		JLabel lblNewLabel_3_3_2 = new JLabel("Re-enter New Password");
-		lblNewLabel_3_3_2.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_3_2.setBounds(58, 305, 237, 13);
+		lblNewLabel_3_3_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_3_3_2.setBounds(46, 287, 237, 13);
 		contentPane_1.add(lblNewLabel_3_3_2);
 		
 		JLabel lblNewLabel_3_3_3 = new JLabel("You can set your new username or use your previouse one");
-		lblNewLabel_3_3_3.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_3_3.setBounds(58, 158, 455, 28);
+		lblNewLabel_3_3_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_3_3_3.setBounds(46, 140, 455, 28);
 		contentPane_1.add(lblNewLabel_3_3_3);
 		
 		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		passwordField.setEchoChar('*');
-		passwordField.setBounds(68, 262, 290, 33);
+		passwordField.setBounds(56, 244, 290, 33);
 		contentPane_1.add(passwordField);
 		
 		passwordField2 = new JPasswordField();
+		passwordField2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		passwordField2.setEchoChar('*');
-		passwordField2.setBounds(68, 325, 290, 33);
+		passwordField2.setBounds(56, 307, 290, 33);
 		contentPane_1.add(passwordField2);
 	}
 }

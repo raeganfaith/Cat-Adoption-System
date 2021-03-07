@@ -35,6 +35,11 @@ public class PanelDonate extends JPanel {
 		JPanel pnlButtonDonate = new JPanel();
 		pnlButtonDonate.addMouseListener(new MouseAdapter() {
 			@Override
+			public void mouseClicked(MouseEvent e) {
+				DonationProcess third = new DonationProcess();
+				third.setVisible(true);
+			}
+			@Override
 			public void mouseEntered(MouseEvent e) {
 				pnlButtonDonate.setBackground(new Color(230, 130, 130));
 			}	
@@ -50,6 +55,7 @@ public class PanelDonate extends JPanel {
 			public void mouseReleased(MouseEvent e) {
 				pnlButtonDonate.setBackground(new Color(230, 130, 130));
 			}
+			
 		});
 		pnlButtonDonate.setBorder(new LineBorder(new Color(128, 128, 128), 4));
 		pnlButtonDonate.setBackground(new Color(255, 153, 204));

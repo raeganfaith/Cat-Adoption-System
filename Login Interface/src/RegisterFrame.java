@@ -19,6 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JRadioButton;
 import javax.swing.JPasswordField;
@@ -26,6 +28,9 @@ import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JComboBox;
 
 public class RegisterFrame extends JFrame {
 	private Image img_neko = new ImageIcon(FrameLogin.class.getResource("res/logo.png")).getImage().getScaledInstance(180, 130, Image.SCALE_SMOOTH);
@@ -81,7 +86,7 @@ public class RegisterFrame extends JFrame {
 		
 		
 		
-		JLabel lblREGISTER = new JLabel("REGISTER HERE!");
+		JLabel lblREGISTER = new JLabel("SIGN UP HERE!");
 		lblREGISTER.setBounds(232, 38, 305, 60);
 		panel.add(lblREGISTER);
 		lblREGISTER.setHorizontalAlignment(SwingConstants.CENTER);
@@ -142,6 +147,17 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(lblEmail);
 		
 		txtfname = new JTextField();
+		txtfname.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
+					txtfname.setEditable(true);
+				} else {
+					txtfname.setEditable(false);
+				}
+			}	
+		});
 		txtfname.setBounds(141, 175, 147, 19);
 		contentPane.add(txtfname);
 		txtfname.setColumns(10);
@@ -162,6 +178,17 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(lblAddress);
 		
 		txtlname = new JTextField();
+		txtlname.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
+					txtlname.setEditable(true);
+				} else {
+					txtlname.setEditable(false);
+				}
+			}
+		});
 		txtlname.setBounds(141, 204, 147, 19);
 		txtlname.setColumns(10);
 		contentPane.add(txtlname);
@@ -177,6 +204,19 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(txtaddress);
 		
 		txtemail = new JTextField();
+		txtemail.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{0,5}$";
+			Pattern patt = Pattern.compile(PATTERN);
+			Matcher match = patt.matcher(txtemail.getText());
+			if(!match.matches()) {
+				lblValidate.setText("Please input valid email!");
+			} else {
+				lblValidate.setText(null);
+			}
+			}
+		});
 		txtemail.setBounds(458, 175, 163, 19);
 		txtemail.setColumns(10);
 		contentPane.add(txtemail);
@@ -275,7 +315,7 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(jSRegister);
 		jSRegister.setLayout(null);
 		
-		JLabel lblbuttonRegister = new JLabel("REGISTER");
+		JLabel lblbuttonRegister = new JLabel("SIGN UP");
 		lblbuttonRegister.setFont(new Font("Cher Faust", Font.PLAIN, 20));
 		lblbuttonRegister.setHorizontalAlignment(SwingConstants.CENTER);
 		lblbuttonRegister.setBounds(20, 10, 131, 28);
