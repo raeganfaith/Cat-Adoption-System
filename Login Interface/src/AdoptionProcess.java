@@ -57,7 +57,7 @@ public class AdoptionProcess extends JFrame {
 		contentPane.add(lblNeko);
 		lblNeko.setIcon(new ImageIcon(img_neko));
 		
-		JLabel lblNewLabel = new JLabel("THANK YOU FOR ADOPTING!");
+		JLabel lblNewLabel = new JLabel("THANK YOU FOR HELPING US!");
 		lblNewLabel.setFont(new Font("Cher Faust", Font.PLAIN, 25));
 		lblNewLabel.setBounds(201, 198, 310, 45);
 		contentPane.add(lblNewLabel);
