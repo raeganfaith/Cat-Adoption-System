@@ -38,7 +38,7 @@ public class RegisterFrame extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtfname;
 	private JTextField txtlname;
-	private JTextField txtage;
+	private JTextField txtPhoneNum;
 	private JTextField txtaddress;
 	private JTextField txtemail;
 	private JTextField JsUsername;
@@ -158,12 +158,12 @@ public class RegisterFrame extends JFrame {
 				}
 			}	
 		});
-		txtfname.setBounds(141, 175, 147, 19);
+		txtfname.setBounds(155, 173, 147, 19);
 		contentPane.add(txtfname);
 		txtfname.setColumns(10);
 		
-		JLabel lblAge = new JLabel("Age:");
-		lblAge.setBounds(49, 231, 76, 19);
+		JLabel lblAge = new JLabel("Phone Number:");
+		lblAge.setBounds(49, 231, 131, 19);
 		lblAge.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(lblAge);
 		
@@ -189,17 +189,43 @@ public class RegisterFrame extends JFrame {
 				}
 			}
 		});
-		txtlname.setBounds(141, 204, 147, 19);
+		txtlname.setBounds(155, 202, 147, 19);
 		txtlname.setColumns(10);
 		contentPane.add(txtlname);
-		
-		txtage = new JTextField();
-		txtage.setBounds(141, 231, 147, 19);
-		txtage.setColumns(10);
-		contentPane.add(txtage);
+		//Phone Number
+		txtPhoneNum = new JTextField();
+		txtPhoneNum.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String phoneNumber = txtPhoneNum.getText(); //get 
+				int length = phoneNumber.length();
+				
+				char c = e.getKeyChar();
+				
+				//check for number 0 to 9
+				if(e.getKeyChar()>='0' && e.getKeyChar()<='9') {
+					//check fot the length not more than 10 digit
+					if(length<11) {
+						txtPhoneNum.setEditable(true);
+					} else {
+						txtPhoneNum.setEditable(false);
+					}
+				} else {
+					//allows the backspace and delete for edit
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						txtPhoneNum.setEditable(true);
+					} else {
+						txtPhoneNum.setEditable(false);
+					}
+				}
+			}
+		});
+		txtPhoneNum.setBounds(155, 229, 147, 19);
+		txtPhoneNum.setColumns(10);
+		contentPane.add(txtPhoneNum);
 		
 		txtaddress = new JTextField();
-		txtaddress.setBounds(141, 284, 147, 37);
+		txtaddress.setBounds(155, 282, 147, 37);
 		txtaddress.setColumns(10);
 		contentPane.add(txtaddress);
 		
@@ -234,14 +260,14 @@ public class RegisterFrame extends JFrame {
 		
 		JRadioButton rdbMale = new JRadioButton("Male");
 		buttonGroup.add(rdbMale);
-		rdbMale.setBounds(222, 257, 76, 21);
+		rdbMale.setBounds(236, 255, 76, 21);
 		rdbMale.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		rdbMale.setBackground(new Color(204, 153, 102));
 		contentPane.add(rdbMale);
 		
 		JRadioButton rdbFemale = new JRadioButton("Female");
 		buttonGroup.add(rdbFemale);
-		rdbFemale.setBounds(141, 257, 76, 21);
+		rdbFemale.setBounds(155, 255, 76, 21);
 		rdbFemale.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		rdbFemale.setBackground(new Color(204, 153, 102));
 		contentPane.add(rdbFemale);
@@ -259,7 +285,7 @@ public class RegisterFrame extends JFrame {
 				boolean female, male, privacy;
 				fname = txtfname.getText();
 				lname = txtlname.getText();
-				age = txtage.getText();
+				age = txtPhoneNum.getText();
 				address = txtaddress.getText();
 				email = txtemail.getText();
 				user = JsUsername.getText();
@@ -370,7 +396,7 @@ public class RegisterFrame extends JFrame {
 				JOptionPane.showConfirmDialog(null, "Are you sure you want to clear your data?", "Warning", JOptionPane.WARNING_MESSAGE,JOptionPane.OK_CANCEL_OPTION);
 				txtfname.setText("");
 				txtlname.setText("");
-				txtage.setText("");
+				txtPhoneNum.setText("");
 				txtaddress.setText("");
 				txtemail.setText("");
 				JsUsername.setText("");

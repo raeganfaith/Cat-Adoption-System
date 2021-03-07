@@ -14,6 +14,10 @@ import javax.swing.border.LineBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class ForgotPass extends JFrame {
 
@@ -96,13 +100,13 @@ public class ForgotPass extends JFrame {
 		panel.add(CloseButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Get back into your account!");
-		lblNewLabel_1.setForeground(new Color(204, 0, 0));
+		lblNewLabel_1.setForeground(Color.BLACK);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_1.setBounds(10, 88, 280, 28);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("To recover your account, begin by entering your email and answer the security question.");
-		lblNewLabel_2.setForeground(new Color(204, 0, 0));
+		lblNewLabel_2.setForeground(Color.BLACK);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_2.setBounds(10, 114, 770, 28);
 		contentPane.add(lblNewLabel_2);
@@ -112,7 +116,27 @@ public class ForgotPass extends JFrame {
 		lblNewLabel_3.setBounds(30, 146, 187, 28);
 		contentPane.add(lblNewLabel_3);
 		
+		JLabel lblValidate = new JLabel("");
+		lblValidate.setFont(new Font("Tahoma", Font.ITALIC, 13));
+		lblValidate.setForeground(Color.RED);
+		lblValidate.setBounds(508, 156, 113, 18);
+		contentPane.add(lblValidate);
+		
 		txtemailfp = new JTextField();
+		txtemailfp.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{0,5}$";
+			Pattern patt = Pattern.compile(PATTERN);
+			Matcher match = patt.matcher(txtemailfp.getText());
+			if(!match.matches()) {
+				lblValidate.setText("Invalid Email!");
+			} else {
+				lblValidate.setText(null);
+			}
+			}
+		});
+		
 		txtemailfp.setBounds(188, 146, 310, 33);
 		contentPane.add(txtemailfp);
 		txtemailfp.setColumns(10);
@@ -183,6 +207,8 @@ public class ForgotPass extends JFrame {
 		lblSubmit.setFont(new Font("Cher Faust", Font.PLAIN, 20));
 		lblSubmit.setBounds(20, 10, 131, 28);
 		jSSumbit.add(lblSubmit);
+		
+		
 	}
 
 	public void Back() {

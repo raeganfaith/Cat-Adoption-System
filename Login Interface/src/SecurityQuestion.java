@@ -98,13 +98,13 @@ public class SecurityQuestion extends JFrame {
 		panel.add(lblBackupYourAccount);
 		
 		JLabel lblNewLabel_1 = new JLabel("Answer a few question for your account recovery ");
-		lblNewLabel_1.setForeground(new Color(204, 0, 0));
+		lblNewLabel_1.setForeground(Color.BLACK);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_1.setBounds(23, 91, 538, 28);
 		contentPane_1.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("This will help you retrieve you account\r\n incase you forgot your passwd!");
-		lblNewLabel_2.setForeground(new Color(204, 0, 0));
+		lblNewLabel_2.setForeground(Color.BLACK);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_2.setBounds(23, 116, 577, 28);
 		contentPane_1.add(lblNewLabel_2);

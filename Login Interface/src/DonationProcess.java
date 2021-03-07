@@ -108,6 +108,29 @@ public class DonationProcess extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JPanel Amount1 = new JPanel();
+		Amount1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showConfirmDialog(null, "Are you sure you want to donate in this amount?");
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				Amount1.setBackground(Color.RED);
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				Amount1.setBackground(new Color(153, 153, 153));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Amount1.setBackground(new Color(193, 193, 193));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				Amount1.setBackground(new Color(153, 153, 153));
+			}
+		});
 		Amount1.setBorder(new LineBorder(Color.BLACK));
 		Amount1.setBackground(Color.GRAY);
 		Amount1.setBounds(391, 98, 106, 44);
@@ -121,6 +144,29 @@ public class DonationProcess extends JFrame {
 		Amount1.add(lblNewLabel_2);
 		
 		JPanel Amount2 = new JPanel();
+		Amount2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showConfirmDialog(null, "Are you sure you want to donate in this amount?");
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				Amount2.setBackground(Color.RED);
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				Amount2.setBackground(new Color(153, 153, 153));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Amount2.setBackground(new Color(193, 193, 193));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				Amount2.setBackground(new Color(153, 153, 153));
+			}
+		});
 		Amount2.setBorder(new LineBorder(Color.BLACK));
 		Amount2.setBackground(Color.GRAY);
 		Amount2.setBounds(507, 98, 106, 44);
@@ -134,6 +180,29 @@ public class DonationProcess extends JFrame {
 		Amount2.add(lblNewLabel_2_1);
 		
 		JPanel Amount3 = new JPanel();
+		Amount3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showConfirmDialog(null, "Are you sure you want to donate in this amount?");
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				Amount3.setBackground(Color.RED);
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				Amount3.setBackground(new Color(153, 153, 153));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Amount3.setBackground(new Color(193, 193, 193));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				Amount3.setBackground(new Color(153, 153, 153));
+			}
+		});
 		Amount3.setBorder(new LineBorder(Color.BLACK));
 		Amount3.setBackground(Color.GRAY);
 		Amount3.setBounds(623, 98, 106, 44);
@@ -147,6 +216,29 @@ public class DonationProcess extends JFrame {
 		Amount3.add(lblNewLabel_2_2);
 		
 		OtherAmount = new JPanel();
+		OtherAmount.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showConfirmDialog(null, "Are you sure you want to donate in this amount?");
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				OtherAmount.setBackground(Color.RED);
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				OtherAmount.setBackground(new Color(153, 153, 153));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				OtherAmount.setBackground(new Color(193, 193, 193));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				OtherAmount.setBackground(new Color(153, 153, 153));
+			}
+		});
 		OtherAmount.setBorder(new LineBorder(Color.BLACK));
 		OtherAmount.setBackground(Color.GRAY);
 		OtherAmount.setBounds(739, 98, 106, 44);
