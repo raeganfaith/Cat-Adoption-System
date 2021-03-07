@@ -45,31 +45,17 @@ public class SecurityQuestion extends JFrame {
 	public SecurityQuestion() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 814, 513);
+		setBounds(100, 100, 646, 435);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(204, 153, 102));
 		setLocationRelativeTo(null);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane_1.setBounds(5, 5, 804, 503);
-		contentPane.add(contentPane_1);
-		contentPane_1.setLayout(null);
-		contentPane_1.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane_1.setBackground(new Color(204, 153, 102));
-		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(Color.GRAY);
-		panel.setBounds(0, 0, 850, 100);
-		contentPane_1.add(panel);
-		
-		JLabel lblBackupYourAccount = new JLabel("Back-up your Account!");
-		lblBackupYourAccount.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBackupYourAccount.setFont(new Font("Cher Faust", Font.PLAIN, 26));
-		lblBackupYourAccount.setBounds(166, 10, 504, 85);
-		panel.add(lblBackupYourAccount);
 		
 		JLabel CloseButton = new JLabel("X");
+		CloseButton.setBounds(616, 5, 30, 30);
+		contentPane.add(CloseButton);
 		CloseButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -88,47 +74,64 @@ public class SecurityQuestion extends JFrame {
 		});
 		CloseButton.setHorizontalAlignment(SwingConstants.CENTER);
 		CloseButton.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-		CloseButton.setBounds(776, 0, 30, 30);
-		panel.add(CloseButton);
+		contentPane_1.setBounds(0, 0, 646, 425);
+		contentPane.add(contentPane_1);
+		contentPane_1.setLayout(null);
+		contentPane_1.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane_1.setBackground(new Color(204, 153, 102));
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBackground(Color.GRAY);
+		panel.setBounds(0, 0, 646, 85);
+		contentPane_1.add(panel);
+		
+		JLabel lblBackupYourAccount = new JLabel("Back-up your Account!");
+		lblBackupYourAccount.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBackupYourAccount.setFont(new Font("Cher Faust", Font.PLAIN, 26));
+		lblBackupYourAccount.setBounds(74, 10, 504, 65);
+		panel.add(lblBackupYourAccount);
 		
 		JLabel lblNewLabel_1 = new JLabel("Answer a few question for your account recovery ");
-		lblNewLabel_1.setFont(new Font("Cher Faust", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(92, 110, 538, 28);
+		lblNewLabel_1.setForeground(new Color(204, 0, 0));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel_1.setBounds(23, 91, 538, 28);
 		contentPane_1.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("This will help you retrieve you account incase you forgot your passwd!");
-		lblNewLabel_2.setFont(new Font("Cher Faust", Font.PLAIN, 16));
-		lblNewLabel_2.setBounds(92, 136, 728, 28);
+		JLabel lblNewLabel_2 = new JLabel("This will help you retrieve you account\r\n incase you forgot your passwd!");
+		lblNewLabel_2.setForeground(new Color(204, 0, 0));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_2.setBounds(23, 116, 577, 28);
 		contentPane_1.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("1. What is the name of the town where you were born?");
-		lblNewLabel_3.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3.setBounds(92, 177, 488, 17);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_3.setBounds(33, 145, 488, 17);
 		contentPane_1.add(lblNewLabel_3);
 		
 		txtquestion1 = new JTextField();
 		txtquestion1.setColumns(10);
-		txtquestion1.setBounds(238, 204, 290, 28);
+		txtquestion1.setBounds(60, 172, 290, 28);
 		contentPane_1.add(txtquestion1);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("2. What is your mother's maiden name?");
-		lblNewLabel_3_1.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_1.setBounds(92, 242, 514, 16);
+		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_3_1.setBounds(33, 210, 514, 16);
 		contentPane_1.add(lblNewLabel_3_1);
 		
 		txtquestion2 = new JTextField();
 		txtquestion2.setColumns(10);
-		txtquestion2.setBounds(238, 268, 290, 28);
+		txtquestion2.setBounds(60, 236, 290, 28);
 		contentPane_1.add(txtquestion2);
 		
 		JLabel lblNewLabel_3_2 = new JLabel("3. What is the name of your first pet?");
-		lblNewLabel_3_2.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_2.setBounds(92, 306, 514, 21);
+		lblNewLabel_3_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_3_2.setBounds(33, 274, 514, 21);
 		contentPane_1.add(lblNewLabel_3_2);
 		
 		txtquestion3 = new JTextField();
 		txtquestion3.setColumns(10);
-		txtquestion3.setBounds(238, 337, 290, 28);
+		txtquestion3.setBounds(60, 305, 290, 28);
 		contentPane_1.add(txtquestion3);
 		
 		JPanel pnlSubmitBackup = new JPanel();
@@ -177,7 +180,7 @@ public class SecurityQuestion extends JFrame {
 		pnlSubmitBackup.setLayout(null);
 		pnlSubmitBackup.setBorder(new LineBorder(new Color(0, 0, 0)));
 		pnlSubmitBackup.setBackground(new Color(255, 153, 153));
-		pnlSubmitBackup.setBounds(238, 422, 90, 40);
+		pnlSubmitBackup.setBounds(106, 381, 90, 40);
 		contentPane_1.add(pnlSubmitBackup);
 		
 		JLabel lblSubmit = new JLabel("SUBMIT");
@@ -219,7 +222,7 @@ public class SecurityQuestion extends JFrame {
 		panelbtnClear.setLayout(null);
 		panelbtnClear.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelbtnClear.setBackground(new Color(153, 153, 153));
-		panelbtnClear.setBounds(438, 422, 90, 40);
+		panelbtnClear.setBounds(259, 381, 90, 40);
 		contentPane_1.add(panelbtnClear);
 		
 		JLabel lblClear = new JLabel("CLEAR");
@@ -230,13 +233,15 @@ public class SecurityQuestion extends JFrame {
 		panelbtnClear.add(lblClear);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Back-up email:");
-		lblNewLabel_2_1.setFont(new Font("Cher Faust", Font.PLAIN, 16));
-		lblNewLabel_2_1.setBounds(119, 384, 126, 28);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_2_1.setBounds(48, 343, 106, 28);
 		contentPane_1.add(lblNewLabel_2_1);
 		
 		txtemailbackup = new JTextField();
 		txtemailbackup.setColumns(10);
-		txtemailbackup.setBounds(238, 384, 290, 28);
+		txtemailbackup.setBounds(148, 343, 202, 28);
 		contentPane_1.add(txtemailbackup);
+		
+		
 	}
 }

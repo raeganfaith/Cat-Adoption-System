@@ -49,7 +49,7 @@ public class ForgotPass extends JFrame {
 	public ForgotPass() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setBounds(100, 100, 850, 484);
+		setBounds(100, 100, 646, 435);
 		setUndecorated(true);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 153, 102));
@@ -61,17 +61,18 @@ public class ForgotPass extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
-		panel.setBounds(0, 0, 850, 100);
+		panel.setBounds(0, 0, 646, 78);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("FORGOT PASSWORD?");
+		lblNewLabel.setBounds(166, 10, 320, 66);
 		lblNewLabel.setFont(new Font("Cher Faust", Font.PLAIN, 26));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(166, 10, 504, 85);
 		panel.add(lblNewLabel);
 		
 		JLabel CloseButton = new JLabel("X");
+		CloseButton.setBounds(616, 0, 30, 40);
 		CloseButton.addMouseListener(new MouseAdapter() {	
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -92,63 +93,64 @@ public class ForgotPass extends JFrame {
 		});
 		CloseButton.setHorizontalAlignment(SwingConstants.CENTER);
 		CloseButton.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-		CloseButton.setBounds(820, 0, 30, 30);
 		panel.add(CloseButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Get back into your account!");
-		lblNewLabel_1.setFont(new Font("Cher Faust", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(56, 138, 280, 28);
+		lblNewLabel_1.setForeground(new Color(204, 0, 0));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(10, 88, 280, 28);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("To recover your account, begin by entering your email and answer the security question.");
-		lblNewLabel_2.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(56, 176, 770, 28);
+		lblNewLabel_2.setForeground(new Color(204, 0, 0));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(10, 114, 770, 28);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Enter your Backup Email:");
-		lblNewLabel_3.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3.setBounds(56, 254, 280, 28);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_3.setBounds(30, 146, 187, 28);
 		contentPane.add(lblNewLabel_3);
 		
 		txtemailfp = new JTextField();
-		txtemailfp.setBounds(56, 294, 290, 33);
+		txtemailfp.setBounds(188, 146, 310, 33);
 		contentPane.add(txtemailfp);
 		txtemailfp.setColumns(10);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("1. What is the name of the town where you were born?");
-		lblNewLabel_3_1.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_1.setBounds(423, 242, 488, 17);
+		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_3_1.setBounds(20, 215, 488, 17);
 		contentPane.add(lblNewLabel_3_1);
 		
 		txtq1fp = new JTextField();
 		txtq1fp.setColumns(10);
-		txtq1fp.setBounds(450, 269, 290, 28);
+		txtq1fp.setBounds(47, 242, 290, 28);
 		contentPane.add(txtq1fp);
 		
 		txtq2fp = new JTextField();
 		txtq2fp.setColumns(10);
-		txtq2fp.setBounds(450, 333, 290, 28);
+		txtq2fp.setBounds(47, 306, 290, 28);
 		contentPane.add(txtq2fp);
 		
 		JLabel lblNewLabel_3_1_1 = new JLabel("2. What is your mother's maiden name?");
-		lblNewLabel_3_1_1.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_1_1.setBounds(423, 307, 514, 16);
+		lblNewLabel_3_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_3_1_1.setBounds(20, 280, 514, 16);
 		contentPane.add(lblNewLabel_3_1_1);
 		
 		JLabel lblNewLabel_3_2 = new JLabel("Security Question:");
 		lblNewLabel_3_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_2.setFont(new Font("Cher Faust", Font.PLAIN, 17));
-		lblNewLabel_3_2.setBounds(399, 208, 187, 24);
+		lblNewLabel_3_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_3_2.setBounds(0, 184, 187, 28);
 		contentPane.add(lblNewLabel_3_2);
 		
 		JLabel lblNewLabel_3_2_1 = new JLabel("3. What is the name of your first pet?");
-		lblNewLabel_3_2_1.setFont(new Font("Cher Faust", Font.PLAIN, 15));
-		lblNewLabel_3_2_1.setBounds(423, 371, 514, 21);
+		lblNewLabel_3_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_3_2_1.setBounds(20, 344, 514, 21);
 		contentPane.add(lblNewLabel_3_2_1);
 		
 		txtq3fp = new JTextField();
 		txtq3fp.setColumns(10);
-		txtq3fp.setBounds(450, 402, 290, 28);
+		txtq3fp.setBounds(47, 375, 290, 28);
 		contentPane.add(txtq3fp);
 		
 		JPanel jSSumbit = new JPanel();
@@ -167,15 +169,13 @@ public class ForgotPass extends JFrame {
 					ForgotPass.this.dispose();
 				} else {
 					JOptionPane.showMessageDialog(null,"Failed to retrieve account!");
-				}
-				
-				
+				}				
 			}
 		});
 		jSSumbit.setLayout(null);
 		jSSumbit.setBorder(new LineBorder(new Color(153, 153, 153), 4));
 		jSSumbit.setBackground(new Color(255, 153, 204));
-		jSSumbit.setBounds(56, 402, 172, 48);
+		jSSumbit.setBounds(415, 364, 172, 48);
 		contentPane.add(jSSumbit);
 		
 		JLabel lblSubmit = new JLabel("SUBMIT");

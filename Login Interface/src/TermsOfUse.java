@@ -57,13 +57,13 @@ public class TermsOfUse extends JFrame {
 		//contentPane.setVisible(true);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 600, 81);
+		panel.setBounds(0, 0, 600, 70);
 		panel.setBackground(Color.GRAY);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel PrivacyPolicy = new JLabel("Terms of Use");
-		PrivacyPolicy.setBounds(186, 26, 206, 34);
+		PrivacyPolicy.setBounds(186, 10, 206, 50);
 		PrivacyPolicy.setHorizontalAlignment(SwingConstants.CENTER);
 		PrivacyPolicy.setFont(new Font("Cher Faust", Font.PLAIN, 30));
 		panel.add(PrivacyPolicy);

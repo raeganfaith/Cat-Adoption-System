@@ -156,29 +156,11 @@ public class FrameLogin extends JFrame {
 				String user, pass;
 				user = txtUsername.getText();
 				pass = txtPassword.getText();
-				//userr = 
-				/**if(txtUsername.getText().equals("admin") && txtPassword.getText().equals("admin123")) {
-					//if user inputs incorect username or password
-					lblLoginMessage.setText("");
-					JOptionPane.showMessageDialog(null, "Login Successful!");
-					//for switching Jframe
-					FrameDashboard second = new FrameDashboard();
-					second.setVisible(true);
-					
-			} else if(txtUsername.getText().equals("") || txtUsername.getText().equals("Username") || 
-						txtUsername.getText().equals("") || txtPassword.getText().equals("Password")) {
-				lblLoginMessage.setText("Please input all requirements!");//For Validation
-			} else {
-				lblLoginMessage.setText("Username and Password didn't match!");//For Validation
-			}**/
 				if (username.contains(user)&&password.contains(pass)) {
 					JOptionPane.showMessageDialog(null,"Login Successful!");
 					FrameDashboard second = new FrameDashboard();
 					second.setVisible(true);
-					 //panel.hide();
-					//if(username.contains(userr)&&password.contains(newpass)) {
-					//	JOptionPane.showMessageDialog(null,"You Successfully logged in!");
-					//}
+
 				}else if(username.isEmpty()&&password.isEmpty()) {
 					lblLoginMessage.setText("Please input all requirements!");
 				
@@ -256,19 +238,14 @@ public class FrameLogin extends JFrame {
 			public void mouseExited(MouseEvent e) {
 				panelbtnRegister.setBackground(new Color(153, 153, 153));
 			}
-			
 			@Override
 			public void mousePressed(MouseEvent e) {
 				panelbtnRegister.setBackground(new Color(193, 193, 193));
 			}
-			
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				panelbtnRegister.setBackground(new Color(153, 153, 153));
 			}
-		});
-		CloseButton.addMouseListener(new MouseAdapter() {
-			
 		});
 		panelbtnRegister.setLayout(null);
 		panelbtnRegister.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -281,7 +258,6 @@ public class FrameLogin extends JFrame {
 		lblRegister.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblRegister.setBounds(10, 10, 70, 21);
 		panelbtnRegister.add(lblRegister);
-		//lblIconLogo.setIcon(new ImageIcon(img_bg));
 		
 		JLabel lblIconLogo2 = new JLabel("");
 		lblIconLogo2.setBounds(176, 10, 250, 201);
@@ -335,7 +311,6 @@ public class FrameLogin extends JFrame {
 	}
 
 	public void Back() {
-		// TODO Auto-generated method stub
 		
 	}
 }

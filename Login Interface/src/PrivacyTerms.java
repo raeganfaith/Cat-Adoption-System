@@ -25,9 +25,6 @@ public class PrivacyTerms extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,9 +38,6 @@ public class PrivacyTerms extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public PrivacyTerms() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,13 +51,13 @@ public class PrivacyTerms extends JFrame {
 		//contentPane.setVisible(true);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 600, 81);
+		panel.setBounds(0, 0, 600, 70);
 		panel.setBackground(Color.GRAY);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel PrivacyPolicy = new JLabel("Privacy Policy");
-		PrivacyPolicy.setBounds(186, 26, 206, 34);
+		PrivacyPolicy.setBounds(188, 10, 206, 50);
 		PrivacyPolicy.setHorizontalAlignment(SwingConstants.CENTER);
 		PrivacyPolicy.setFont(new Font("Cher Faust", Font.PLAIN, 30));
 		panel.add(PrivacyPolicy);
@@ -151,16 +145,6 @@ public class PrivacyTerms extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 0, 65, 30);
 		pnlAgreeButton.add(lblNewLabel);
-		
-		
-		
-		//JScrollPane scrollBar = new JScrollPane(txtpnPrivacyPolicyLast, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		//contentPane.add(scrollBar);
-		
-		
-		
-		//JScrollBar scrollBar = new JScrollBar();
-		//scrollBar.setBounds(560, 106, 17, 268);
-		//contentPane.add(scrollBar);
+
 	}
 }

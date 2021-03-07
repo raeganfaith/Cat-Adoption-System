@@ -42,13 +42,7 @@ public class RegisterFrame extends JFrame {
 	private JLabel lblValidate = new JLabel("");
 	private JTextField txtAnd;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	//public static ArrayList <String> email = new ArrayList();
-	//public static ArrayList <String> username = new ArrayList();
-	//public static ArrayList <String> password = new ArrayList();
 
-	/**
-	 * Launch the application.
-	 */
 	public void Back() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -61,13 +55,11 @@ public class RegisterFrame extends JFrame {
 			}
 		});
 	}
-	/**
-	 * Create the frame.
-	 */
+
 	public RegisterFrame() {
 		setBackground(new Color(204, 153, 102));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 646, 435);
+		setBounds(100, 100, 646, 435);//Frame size
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 153, 102));
@@ -213,9 +205,6 @@ public class RegisterFrame extends JFrame {
 		rdbFemale.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		rdbFemale.setBackground(new Color(204, 153, 102));
 		contentPane.add(rdbFemale);
-		
-		//Array
-		//ArrayList<String[]> listOfUser = new ArrayList<String[]>();
 			
 		JPanel jSRegister = new JPanel();
 		jSRegister.setBounds(141, 377, 172, 48);
@@ -226,8 +215,6 @@ public class RegisterFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				FrameLogin create = new FrameLogin();
-				//FrameDashboard second = new FrameDashboard();
-				//second.setVisible(true);
 				String fname, lname, age, address,  email, user, pass, pass2;
 				boolean female, male, privacy;
 				fname = txtfname.getText();
@@ -239,8 +226,6 @@ public class RegisterFrame extends JFrame {
 				pass = jSPassword.getText();
 				pass2 =jSPassword2.getText();
 				
-				//male = rdbMale.isSelected();
-				//female = rdbFemale.isSelected();
 				privacy = PrivacyTerms.isSelected();
 				
 				if (fname.equals("") ||lname.equals("") || age.equals("") || address.equals("")|| 
@@ -285,8 +270,8 @@ public class RegisterFrame extends JFrame {
 			}
 			
 		});
-		jSRegister.setBorder(new LineBorder(new Color(153, 153, 153), 4));
-		jSRegister.setBackground(new Color(255, 153, 204));
+		jSRegister.setBorder(new LineBorder(Color.BLACK));
+		jSRegister.setBackground(Color.PINK);
 		contentPane.add(jSRegister);
 		jSRegister.setLayout(null);
 		
@@ -357,27 +342,27 @@ public class RegisterFrame extends JFrame {
 			
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				panelClear.setBackground(new Color(230, 130, 130));
+				panelClear.setBackground(new Color(123, 123, 123));
 			}
 			
 			@Override
 			public void mouseExited(MouseEvent e) {
-				panelClear.setBackground(new Color(255, 153, 153));
+				panelClear.setBackground(new Color(153, 153, 153));
 			}
 			
 			@Override
 			public void mousePressed(MouseEvent e) {
-				panelClear.setBackground(new Color(285, 183, 183));
+				panelClear.setBackground(new Color(193, 193, 193));
 			}
 			
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				panelClear.setBackground(new Color(230, 130, 130));
+				panelClear.setBackground(new Color(153, 153, 153));
 			}
 		});
 		panelClear.setLayout(null);
-		panelClear.setBorder(new LineBorder(new Color(153, 153, 153), 4));
-		panelClear.setBackground(new Color(255, 153, 204));
+		panelClear.setBorder(new LineBorder(Color.BLACK));
+		panelClear.setBackground(Color.GRAY);
 		contentPane.add(panelClear);
 		
 		JLabel lblClear = new JLabel("CLEAR");
@@ -413,12 +398,7 @@ public class RegisterFrame extends JFrame {
 		});
 		chckbxNewCheckBox.setBackground(new Color(204, 153, 102));
 		contentPane.add(chckbxNewCheckBox);
-		
-		//JLabel lblValidate = new JLabel(".");
-		//lblValidate.setHorizontalAlignment(SwingConstants.CENTER);
-		//lblValidate.setForeground(Color.RED);
-		//lblValidate.setBounds(172, 389, 341, 21);
-		//contentPane.add(lblValidate);
+
 		setUndecorated(true);
 		lblValidate.setBounds(151, 320, 362, 21);
 		lblValidate.setHorizontalAlignment(SwingConstants.CENTER);
@@ -437,7 +417,6 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(txtAnd);
 		
 		JLabel lblTerms = new JLabel("Terms of Use");
-		//JLabel lblTerms = new JLabel("Forgot Password?");
 		lblTerms.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
