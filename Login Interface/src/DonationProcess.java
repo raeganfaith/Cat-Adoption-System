@@ -19,18 +19,20 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
 public class DonationProcess extends JFrame {
 	
 	private Image img_highfive = new ImageIcon(FrameLogin.class.getResource("res/highfive.jpg")).getImage().getScaledInstance(450, 600, Image.SCALE_SMOOTH);
 
 	private JPanel contentPane;
-	private JPanel OtherAmount;
 	private JTextField txtCardNum;
-	private JTextField txtmonth;
-	private JTextField txtYear;
 	private JTextField txtCVC;
 	private JTextField txtName;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JTextField txtOther;
+	private JLabel lblValidate1 = new JLabel("");
 
 	/**
 	 * Launch the application.
@@ -109,247 +111,162 @@ public class DonationProcess extends JFrame {
 		lblNewLabel_1.setBounds(391, 67, 249, 32);
 		contentPane.add(lblNewLabel_1);
 		
-		JPanel Amount1 = new JPanel();
-		Amount1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showConfirmDialog(null, "Are you sure you want to donate in this amount?");
-			}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				Amount1.setBackground(Color.RED);
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				Amount1.setBackground(new Color(153, 153, 153));
-			}
-			@Override
-			public void mousePressed(MouseEvent e) {
-				Amount1.setBackground(new Color(193, 193, 193));
-			}
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				Amount1.setBackground(new Color(153, 153, 153));
-			}
-		});
-		Amount1.setBorder(new LineBorder(Color.BLACK));
-		Amount1.setBackground(Color.GRAY);
-		Amount1.setBounds(391, 98, 106, 44);
-		contentPane.add(Amount1);
-		Amount1.setLayout(null);
-		
-		JLabel lblNewLabel_2 = new JLabel("PHP 250");
-		lblNewLabel_2.setFont(new Font("Cher Faust", Font.PLAIN, 14));
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(10, 10, 86, 28);
-		Amount1.add(lblNewLabel_2);
-		
-		JPanel Amount2 = new JPanel();
-		Amount2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showConfirmDialog(null, "Are you sure you want to donate in this amount?");
-			}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				Amount2.setBackground(Color.RED);
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				Amount2.setBackground(new Color(153, 153, 153));
-			}
-			@Override
-			public void mousePressed(MouseEvent e) {
-				Amount2.setBackground(new Color(193, 193, 193));
-			}
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				Amount2.setBackground(new Color(153, 153, 153));
-			}
-		});
-		Amount2.setBorder(new LineBorder(Color.BLACK));
-		Amount2.setBackground(Color.GRAY);
-		Amount2.setBounds(507, 98, 106, 44);
-		contentPane.add(Amount2);
-		Amount2.setLayout(null);
-		
-		JLabel lblNewLabel_2_1 = new JLabel("PHP 1k");
-		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1.setFont(new Font("Cher Faust", Font.PLAIN, 14));
-		lblNewLabel_2_1.setBounds(10, 10, 86, 28);
-		Amount2.add(lblNewLabel_2_1);
-		
-		JPanel Amount3 = new JPanel();
-		Amount3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showConfirmDialog(null, "Are you sure you want to donate in this amount?");
-			}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				Amount3.setBackground(Color.RED);
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				Amount3.setBackground(new Color(153, 153, 153));
-			}
-			@Override
-			public void mousePressed(MouseEvent e) {
-				Amount3.setBackground(new Color(193, 193, 193));
-			}
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				Amount3.setBackground(new Color(153, 153, 153));
-			}
-		});
-		Amount3.setBorder(new LineBorder(Color.BLACK));
-		Amount3.setBackground(Color.GRAY);
-		Amount3.setBounds(623, 98, 106, 44);
-		contentPane.add(Amount3);
-		Amount3.setLayout(null);
-		
-		JLabel lblNewLabel_2_2 = new JLabel("PHP 2.5k");
-		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_2.setFont(new Font("Cher Faust", Font.PLAIN, 14));
-		lblNewLabel_2_2.setBounds(10, 10, 86, 28);
-		Amount3.add(lblNewLabel_2_2);
-		
-		OtherAmount = new JPanel();
-		OtherAmount.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				OtherAmount.setBackground(Color.GRAY);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				OtherAmount.setBackground(Color.RED);
-			}
-			@Override
-			public void mousePressed(MouseEvent e) {
-				OtherAmount.setBackground(Color.RED);
-			}
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				OtherAmount.setBackground(Color.RED);
-			}
-		});
-		OtherAmount.setBorder(new LineBorder(Color.BLACK));
-		OtherAmount.setBackground(Color.GRAY);
-		OtherAmount.setBounds(739, 98, 106, 44);
-		contentPane.add(OtherAmount);
-		OtherAmount.setLayout(null);
-		
-		JLabel lblNewLabel_2_3 = new JLabel("Other");
-		lblNewLabel_2_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_3.setFont(new Font("Cher Faust", Font.PLAIN, 14));
-		lblNewLabel_2_3.setBounds(10, 10, 86, 28);
-		OtherAmount.add(lblNewLabel_2_3);
-		
-		JLabel lblOther = new JLabel("");
-		lblOther.setForeground(Color.BLUE);
-		lblOther.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblOther.setBounds(401, 152, 96, 32);
-		contentPane.add(lblOther);
-		
 		JLabel lblWarningMessage = new JLabel("");
 		lblWarningMessage.setForeground(Color.RED);
 		lblWarningMessage.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblWarningMessage.setBounds(582, 67, 232, 25);
+		lblWarningMessage.setBounds(582, 67, 58, 25);
 		contentPane.add(lblWarningMessage);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new EmptyBorder(0, 0, 0, 0));
-		panel_1.setBackground(Color.PINK);
-		panel_1.setBounds(391, 190, 451, 268);
-		contentPane.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel panelMain = new JPanel();
+		panelMain.setBorder(new EmptyBorder(0, 0, 0, 0));
+		panelMain.setBackground(Color.PINK);
+		panelMain.setBounds(391, 190, 451, 268);
+		contentPane.add(panelMain);
+		panelMain.setLayout(null);
 		
 		JLabel lblNewLabel_3 = new JLabel("Add credit or debit card");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_3.setBounds(0, 10, 165, 24);
-		panel_1.add(lblNewLabel_3);
+		panelMain.add(lblNewLabel_3);
 		
 		JLabel lblCardNum = new JLabel("Card Number:");
 		lblCardNum.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblCardNum.setBounds(0, 39, 103, 24);
-		panel_1.add(lblCardNum);
+		panelMain.add(lblCardNum);
 		
 		txtCardNum = new JTextField();
 		txtCardNum.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
+				String CardNum = txtCardNum.getText(); //get 
+				int length = CardNum.length();
 				
+				char c = e.getKeyChar();
+				
+				//check for number 0 to 9
+				if(e.getKeyChar()>='0' && e.getKeyChar()<='9') {
+					//check fot the length not more than 16 digit
+					if(length<16) {
+						txtCardNum.setEditable(true);
+					} else {
+						txtCardNum.setEditable(false);
+					}
+				} else {
+					//allows the backspace and delete for edit
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						txtCardNum.setEditable(true);
+					} else {
+						txtCardNum.setEditable(false);
+					}
+				}
 			}
 		});
 		txtCardNum.setColumns(10);
-		txtCardNum.setBounds(93, 39, 187, 24);
-		panel_1.add(txtCardNum);
-		
-		JLabel lblMm = new JLabel("MM");
-		lblMm.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMm.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblMm.setBounds(298, 10, 40, 24);
-		panel_1.add(lblMm);
-		
-		txtmonth = new JTextField();
-		txtmonth.setColumns(10);
-		txtmonth.setBounds(308, 39, 25, 24);
-		panel_1.add(txtmonth);
-		
-		JLabel lblYy = new JLabel("YY");
-		lblYy.setHorizontalAlignment(SwingConstants.CENTER);
-		lblYy.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblYy.setBounds(348, 10, 25, 24);
-		panel_1.add(lblYy);
-		
-		JLabel lblCvc_1 = new JLabel("/");
-		lblCvc_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCvc_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCvc_1.setBounds(330, 39, 25, 24);
-		panel_1.add(lblCvc_1);
-		
-		txtYear = new JTextField();
-		txtYear.setColumns(10);
-		txtYear.setBounds(348, 39, 25, 24);
-		panel_1.add(txtYear);
+		txtCardNum.setBounds(127, 39, 187, 24);
+		panelMain.add(txtCardNum);
 		
 		txtCVC = new JTextField();
+		txtCVC.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String cvc = txtCVC.getText(); //get 
+				int length = cvc.length();
+				
+				char c = e.getKeyChar();
+				
+				//check for number 0 to 9
+				if(e.getKeyChar()>='0' && e.getKeyChar()<='9') {
+					//check fot the length not more than 11 digit
+					if(length<3) {
+						txtCVC.setEditable(true);
+					} else {
+						txtCVC.setEditable(false);
+					}
+				} else {
+					//allows the backspace and delete for edit
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						txtCVC.setEditable(true);
+					} else {
+						txtCVC.setEditable(false);
+					}
+				}
+			}
+			
+		});
 		txtCVC.setColumns(10);
-		txtCVC.setBounds(402, 44, 40, 24);
-		panel_1.add(txtCVC);
+		txtCVC.setBounds(324, 39, 40, 24);
+		panelMain.add(txtCVC);
 		
 		JLabel lblCvc = new JLabel("CVC");
 		lblCvc.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCvc.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCvc.setBounds(402, 10, 40, 24);
-		panel_1.add(lblCvc);
+		lblCvc.setBounds(324, 5, 40, 24);
+		panelMain.add(lblCvc);
 		
 		JLabel lblCardHolderName = new JLabel("Card Holder Name:");
 		lblCardHolderName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblCardHolderName.setBounds(0, 88, 165, 24);
-		panel_1.add(lblCardHolderName);
+		panelMain.add(lblCardHolderName);
+		
+		JLabel lblValidate1 = new JLabel("");
+		lblValidate1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblValidate1.setForeground(Color.RED);
+		lblValidate1.setBounds(93, 170, 245, 27);
+		panelMain.add(lblValidate1);
 		
 		txtName = new JTextField();
+		txtName.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
+					txtName.setEditable(true);
+				} else {
+					txtName.setEditable(false);
+				}
+			}	
+		});
 		txtName.setColumns(10);
-		txtName.setBounds(0, 122, 187, 24);
-		panel_1.add(txtName);
-		
-		JLabel lblValidate = new JLabel("");
-		lblValidate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblValidate.setForeground(Color.RED);
-		lblValidate.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblValidate.setBounds(93, 173, 245, 24);
-		panel_1.add(lblValidate);
+		txtName.setBounds(131, 91, 187, 24);
+		panelMain.add(txtName);
 		
 		JPanel panelbtnDonate = new JPanel();
+		panelbtnDonate.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String name, card, month, year;
+				name = txtName.getText();
+				card = txtCardNum.getText();
+				if(name.equals("")||card.equals("")) {
+					//JOptionPane.showConfirmDialog(null, "Please input all Requirements ?");
+					lblValidate1.setText("Please input all Requirements!");
+				}else {
+					lblValidate1.setText("");
+				}
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panelbtnDonate.setBackground(new Color(123, 123, 123));
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panelbtnDonate.setBackground(new Color(153, 153, 153));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				panelbtnDonate.setBackground(new Color(193, 193, 193));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				panelbtnDonate.setBackground(new Color(153, 153, 153));
+			}
+		});
 		panelbtnDonate.setLayout(null);
 		panelbtnDonate.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelbtnDonate.setBackground(new Color(153, 153, 153));
 		panelbtnDonate.setBounds(93, 207, 245, 40);
-		panel_1.add(panelbtnDonate);
+		panelMain.add(panelbtnDonate);
 		
 		JLabel lblDonate = new JLabel("DONATE");
 		lblDonate.setHorizontalAlignment(SwingConstants.CENTER);
@@ -357,8 +274,84 @@ public class DonationProcess extends JFrame {
 		lblDonate.setBackground(Color.PINK);
 		lblDonate.setBounds(10, 10, 225, 21);
 		panelbtnDonate.add(lblDonate);
+		
+		
+		
+		JRadioButton rdb250 = new JRadioButton("PHP 250");
+		buttonGroup.add(rdb250);
+		rdb250.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		rdb250.setBackground(Color.PINK);
+		rdb250.setBounds(401, 98, 101, 32);
+		contentPane.add(rdb250);
+		
+		JRadioButton rdb500 = new JRadioButton("PHP 500");
+		buttonGroup.add(rdb500);
+		rdb500.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		rdb500.setBackground(Color.PINK);
+		rdb500.setBounds(401, 132, 101, 32);
+		contentPane.add(rdb500);
+		
+		JRadioButton rdb1k = new JRadioButton("PHP 1,000");
+		buttonGroup.add(rdb1k);
+		rdb1k.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		rdb1k.setBackground(Color.PINK);
+		rdb1k.setBounds(503, 100, 101, 32);
+		contentPane.add(rdb1k);
+		
+		JRadioButton rdb2k = new JRadioButton("PHP 2,000");
+		buttonGroup.add(rdb2k);
+		rdb2k.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		rdb2k.setBackground(Color.PINK);
+		rdb2k.setBounds(503, 132, 101, 32);
+		contentPane.add(rdb2k);
+		
+		JRadioButton rdbOther = new JRadioButton("Other Amount");
+		rdbOther.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtOther.setVisible(true);
+			}
+		});
+		buttonGroup.add(rdbOther);
+		rdbOther.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		rdbOther.setBackground(Color.PINK);
+		rdbOther.setBounds(619, 100, 137, 32);
+		contentPane.add(rdbOther);
+		
+		txtOther = new JTextField();
+		txtOther.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String phoneNumber = txtOther.getText(); //get 
+				int length = phoneNumber.length();
+				
+				char c = e.getKeyChar();
+				
+				//check for number 0 to 9
+				if(e.getKeyChar()>='0' && e.getKeyChar()<='9') {
+					//check fot the length not more than 10 digit
+					if(length<12) {
+						txtOther.setEditable(true);
+					} else {
+						txtOther.setEditable(false);
+					}
+				} else {
+					//allows the backspace and delete for edit
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						txtOther.setEditable(true);
+					} else {
+						txtOther.setEditable(false);
+					}
+				}
+			}
+		});
+		txtOther.setBounds(629, 133, 137, 25);
+		contentPane.add(txtOther);
+		txtOther.setColumns(10);
+		txtOther.setVisible(false);
+		
+		
+		
 
 	}
-
-	
 }

@@ -204,7 +204,7 @@ public class RegisterFrame extends JFrame {
 				
 				//check for number 0 to 9
 				if(e.getKeyChar()>='0' && e.getKeyChar()<='9') {
-					//check fot the length not more than 10 digit
+					//check fot the length not more than 11 digit
 					if(length<11) {
 						txtPhoneNum.setEditable(true);
 					} else {
