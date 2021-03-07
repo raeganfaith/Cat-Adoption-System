@@ -241,7 +241,11 @@ public class DonationProcess extends JFrame {
 					//JOptionPane.showConfirmDialog(null, "Please input all Requirements ?");
 					lblValidate1.setText("Please input all Requirements!");
 				}else {
+					DonationProcess.this.dispose();
 					lblValidate1.setText("");
+					AdoptionProcess third = new AdoptionProcess();
+					third.setVisible(true);
+					
 				}
 			}
 			@Override
