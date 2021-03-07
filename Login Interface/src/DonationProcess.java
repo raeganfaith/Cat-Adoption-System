@@ -17,6 +17,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class DonationProcess extends JFrame {
 	
@@ -24,11 +26,11 @@ public class DonationProcess extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel OtherAmount;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField txtCardNum;
+	private JTextField txtmonth;
+	private JTextField txtYear;
+	private JTextField txtCVC;
+	private JTextField txtName;
 
 	/**
 	 * Launch the application.
@@ -218,25 +220,20 @@ public class DonationProcess extends JFrame {
 		OtherAmount = new JPanel();
 		OtherAmount.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showConfirmDialog(null, "Are you sure you want to donate in this amount?");
-			}
-			@Override
 			public void mouseEntered(MouseEvent e) {
-				OtherAmount.setBackground(Color.RED);
+				OtherAmount.setBackground(Color.GRAY);
 			}
-			
 			@Override
 			public void mouseExited(MouseEvent e) {
-				OtherAmount.setBackground(new Color(153, 153, 153));
+				OtherAmount.setBackground(Color.RED);
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
-				OtherAmount.setBackground(new Color(193, 193, 193));
+				OtherAmount.setBackground(Color.RED);
 			}
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				OtherAmount.setBackground(new Color(153, 153, 153));
+				OtherAmount.setBackground(Color.RED);
 			}
 		});
 		OtherAmount.setBorder(new LineBorder(Color.BLACK));
@@ -280,10 +277,16 @@ public class DonationProcess extends JFrame {
 		lblCardNum.setBounds(0, 39, 103, 24);
 		panel_1.add(lblCardNum);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(93, 39, 187, 24);
-		panel_1.add(textField);
+		txtCardNum = new JTextField();
+		txtCardNum.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+			}
+		});
+		txtCardNum.setColumns(10);
+		txtCardNum.setBounds(93, 39, 187, 24);
+		panel_1.add(txtCardNum);
 		
 		JLabel lblMm = new JLabel("MM");
 		lblMm.setHorizontalAlignment(SwingConstants.CENTER);
@@ -291,10 +294,10 @@ public class DonationProcess extends JFrame {
 		lblMm.setBounds(298, 10, 40, 24);
 		panel_1.add(lblMm);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(308, 39, 25, 24);
-		panel_1.add(textField_1);
+		txtmonth = new JTextField();
+		txtmonth.setColumns(10);
+		txtmonth.setBounds(308, 39, 25, 24);
+		panel_1.add(txtmonth);
 		
 		JLabel lblYy = new JLabel("YY");
 		lblYy.setHorizontalAlignment(SwingConstants.CENTER);
@@ -308,15 +311,15 @@ public class DonationProcess extends JFrame {
 		lblCvc_1.setBounds(330, 39, 25, 24);
 		panel_1.add(lblCvc_1);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(348, 39, 25, 24);
-		panel_1.add(textField_2);
+		txtYear = new JTextField();
+		txtYear.setColumns(10);
+		txtYear.setBounds(348, 39, 25, 24);
+		panel_1.add(txtYear);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(402, 44, 40, 24);
-		panel_1.add(textField_3);
+		txtCVC = new JTextField();
+		txtCVC.setColumns(10);
+		txtCVC.setBounds(402, 44, 40, 24);
+		panel_1.add(txtCVC);
 		
 		JLabel lblCvc = new JLabel("CVC");
 		lblCvc.setHorizontalAlignment(SwingConstants.CENTER);
@@ -329,17 +332,17 @@ public class DonationProcess extends JFrame {
 		lblCardHolderName.setBounds(0, 88, 165, 24);
 		panel_1.add(lblCardHolderName);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(0, 122, 187, 24);
-		panel_1.add(textField_4);
+		txtName = new JTextField();
+		txtName.setColumns(10);
+		txtName.setBounds(0, 122, 187, 24);
+		panel_1.add(txtName);
 		
-		JLabel lblWarningMessage_1 = new JLabel("");
-		lblWarningMessage_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblWarningMessage_1.setForeground(Color.RED);
-		lblWarningMessage_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblWarningMessage_1.setBounds(93, 173, 245, 24);
-		panel_1.add(lblWarningMessage_1);
+		JLabel lblValidate = new JLabel("");
+		lblValidate.setHorizontalAlignment(SwingConstants.CENTER);
+		lblValidate.setForeground(Color.RED);
+		lblValidate.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblValidate.setBounds(93, 173, 245, 24);
+		panel_1.add(lblValidate);
 		
 		JPanel panelbtnDonate = new JPanel();
 		panelbtnDonate.setLayout(null);
@@ -357,8 +360,5 @@ public class DonationProcess extends JFrame {
 
 	}
 
-	private void setRelativeLocation(Object object) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
