@@ -42,9 +42,6 @@ public class FrameDashboard extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public FrameDashboard() {
 		setBackground(new Color(153, 153, 153));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,13 +56,9 @@ public class FrameDashboard extends JFrame {
 		contentPane.setLayout(null);
 		
 		panelHome = new PanelHome();
-		//panelHome.setBounds(243, 9, 1, 1);
 		panelAbout = new PanelAbout();
-		//panelAbout.setBounds(249, 5, 10, 10);
 		panelAdopt = new PanelAdopt();
-		//panelAdopt.setBounds(264, 9, 1, 1);
 		panelDonate = new PanelDonate();
-		//panelDonate.setBounds(270, 5, 10, 10);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 153, 153));
@@ -80,6 +73,7 @@ public class FrameDashboard extends JFrame {
 		
 		JPanel paneHome = new JPanel();
 		paneHome.addMouseListener(new PanelButtonMouseAdapter(paneHome) {
+			//Allows to show the panelHome after clicking the paneHome(Home NavBar).
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				menuClicked(panelHome);
@@ -99,6 +93,7 @@ public class FrameDashboard extends JFrame {
 		
 		JPanel paneAbout = new JPanel();
 		paneAbout.addMouseListener(new PanelButtonMouseAdapter(paneAbout) {
+			//Allows to show the panelAbout after clicking the paneAbout(About NavBar).
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				menuClicked(panelAbout);
@@ -118,6 +113,7 @@ public class FrameDashboard extends JFrame {
 		
 		JPanel paneAdopt = new JPanel();
 		paneAdopt.addMouseListener(new PanelButtonMouseAdapter(paneAdopt) {
+			//Allows to show the panelAdopt after clicking the paneAdopt(Adopt NavBar).
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				menuClicked(panelAdopt);
@@ -137,6 +133,7 @@ public class FrameDashboard extends JFrame {
 		
 		JPanel paneDonate = new JPanel();
 		paneDonate.addMouseListener(new PanelButtonMouseAdapter(paneDonate) {
+			//Allows to show the panelDonate after clicking the paneDonate(Donate NavBar).
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				menuClicked(panelDonate);

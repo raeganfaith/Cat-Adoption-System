@@ -84,24 +84,23 @@ public class RegisterFrame extends JFrame {
 		lblNEKO1.setBounds(55, 0, 200, 125);
 		panel.add(lblNEKO1);
 		lblNEKO1.setIcon(new ImageIcon(img_neko));
-		
-		
-		
-		JLabel lblREGISTER = new JLabel("SIGN UP HERE!");
-		lblREGISTER.setBounds(232, 38, 305, 60);
-		panel.add(lblREGISTER);
-		lblREGISTER.setHorizontalAlignment(SwingConstants.CENTER);
-		lblREGISTER.setFont(new Font("Cher Faust", Font.PLAIN, 30));
+			
+		JLabel lblSignUp = new JLabel("SIGN UP HERE!");
+		lblSignUp.setBounds(232, 38, 305, 60);
+		panel.add(lblSignUp);
+		lblSignUp.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSignUp.setFont(new Font("Cher Faust", Font.PLAIN, 30));
 		
 		JLabel lblbtnClose = new JLabel("X");
 		lblbtnClose.addMouseListener(new MouseAdapter() {
-			
+			//Close button function and confirmation.
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
 					RegisterFrame.this.dispose();
 				}			
-			}		
+			}
+			//Hover Buttons effect
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				lblbtnClose.setForeground(Color.RED);
@@ -149,6 +148,7 @@ public class RegisterFrame extends JFrame {
 		
 		txtfname = new JTextField();
 		txtfname.addKeyListener(new KeyAdapter() {
+			//Only allows the textfield to accept and display alphabets
 			@Override
 			public void keyPressed(KeyEvent e) {
 				char c = e.getKeyChar();
@@ -180,6 +180,7 @@ public class RegisterFrame extends JFrame {
 		
 		txtlname = new JTextField();
 		txtlname.addKeyListener(new KeyAdapter() {
+			//Only allows the textfield to accept and display alphabets
 			@Override
 			public void keyPressed(KeyEvent e) {
 				char c = e.getKeyChar();
@@ -196,12 +197,12 @@ public class RegisterFrame extends JFrame {
 		//Phone Number
 		txtPhoneNum = new JTextField();
 		txtPhoneNum.addKeyListener(new KeyAdapter() {
+			//Allows the PhoneNum text field to accept numbers only.
 			@Override
 			public void keyPressed(KeyEvent e) {
-				String phoneNumber = txtPhoneNum.getText(); //get 
-				int length = phoneNumber.length();
-				
-				char c = e.getKeyChar();
+				String phoneNumber = txtPhoneNum.getText();  
+				int length = phoneNumber.length();				
+				char c = e.getKeyChar();	
 				
 				//check for number 0 to 9
 				if(e.getKeyChar()>='0' && e.getKeyChar()<='9') {
@@ -232,6 +233,8 @@ public class RegisterFrame extends JFrame {
 		
 		txtemail = new JTextField();
 		txtemail.addKeyListener(new KeyAdapter() {
+			//set pattern for the email(email@gmail.com)
+			//Apply validation
 			@Override
 			public void keyReleased(KeyEvent e) {
 				String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{0,5}$";
@@ -273,17 +276,17 @@ public class RegisterFrame extends JFrame {
 		rdbFemale.setBackground(new Color(204, 153, 102));
 		contentPane.add(rdbFemale);
 			
-		JPanel jSRegister = new JPanel();
-		jSRegister.setBounds(141, 377, 172, 48);
+		JPanel pnlbtnSignUp = new JPanel();
+		pnlbtnSignUp.setBounds(141, 377, 172, 48);
 		
-		jSRegister.addMouseListener(new MouseAdapter() {
-			
+		pnlbtnSignUp.addMouseListener(new MouseAdapter() {
 			//Registration Validation:
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				FrameLogin create = new FrameLogin();
 				String fname, lname, age, address,  email, user, pass, pass2;
-				boolean female, male, privacy;
+				boolean privacy;
+				//Set value to the string and boolean variables.		
 				fname = txtfname.getText();
 				lname = txtlname.getText();
 				age = txtPhoneNum.getText();
@@ -292,9 +295,9 @@ public class RegisterFrame extends JFrame {
 				user = JsUsername.getText();
 				pass = jSPassword.getText();
 				pass2 =jSPassword2.getText();
-				
 				privacy = PrivacyTerms.isSelected();
 				
+				//Conditional statement for the validation and function of the Signup Button
 				if (fname.equals("") ||lname.equals("") || age.equals("") || address.equals("")|| 
 						email.equals("")||pass.equals("")) {
 					lblValidate.setText("Please input all requirements!");
@@ -311,6 +314,7 @@ public class RegisterFrame extends JFrame {
 					FrameLogin.password.add(pass);
 						
 					create.Back();
+					//To hide the FrameLogin
 					create.setVisible(false);
 				JOptionPane.showMessageDialog(null, "Registered!");
 				RegisterFrame.this.dispose();
@@ -321,33 +325,33 @@ public class RegisterFrame extends JFrame {
 			//Hover effects
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				jSRegister.setBackground(new Color(230, 130, 130));
+				pnlbtnSignUp.setBackground(new Color(230, 130, 130));
 			}	
 			@Override
 			public void mouseExited(MouseEvent e) {
-				jSRegister.setBackground(new Color(255, 153, 153));
+				pnlbtnSignUp.setBackground(new Color(255, 153, 153));
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
-				jSRegister.setBackground(new Color(285, 183, 183));
+				pnlbtnSignUp.setBackground(new Color(285, 183, 183));
 			}
 			
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				jSRegister.setBackground(new Color(230, 130, 130));
+				pnlbtnSignUp.setBackground(new Color(230, 130, 130));
 			}
 			
 		});
-		jSRegister.setBorder(new LineBorder(Color.BLACK));
-		jSRegister.setBackground(Color.PINK);
-		contentPane.add(jSRegister);
-		jSRegister.setLayout(null);
+		pnlbtnSignUp.setBorder(new LineBorder(Color.BLACK));
+		pnlbtnSignUp.setBackground(Color.PINK);
+		contentPane.add(pnlbtnSignUp);
+		pnlbtnSignUp.setLayout(null);
 		
 		JLabel lblbuttonRegister = new JLabel("SIGN UP");
 		lblbuttonRegister.setFont(new Font("Cher Faust", Font.PLAIN, 20));
 		lblbuttonRegister.setHorizontalAlignment(SwingConstants.CENTER);
 		lblbuttonRegister.setBounds(20, 10, 131, 28);
-		jSRegister.add(lblbuttonRegister);
+		pnlbtnSignUp.add(lblbuttonRegister);
 		
 		JLabel lblAGE = new JLabel("");
 		lblAGE.setBounds(10, 231, 29, 23);
@@ -406,7 +410,7 @@ public class RegisterFrame extends JFrame {
 				jSPassword2.setText("");
 				buttonGroup.clearSelection();
 			}
-			
+			//Hover effects for Clear Button
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				panelClear.setBackground(new Color(123, 123, 123));

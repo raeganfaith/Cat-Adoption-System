@@ -152,6 +152,7 @@ public class FrameLogin extends JFrame {
 		pnlpass.add(lblPassLogo);
 		lblPassLogo.setIcon(new ImageIcon(img_pass));
 		
+		//------------Login Button function---------------
 		JPanel pnlBtnLogin = new JPanel();
 		pnlBtnLogin.addMouseListener(new MouseAdapter() {
 			@Override
@@ -274,6 +275,7 @@ public class FrameLogin extends JFrame {
 		contentPane.add(lblIconLogo2);
 		lblIconLogo2.setIcon(new ImageIcon(img_logo));
 		
+		//To transfer or open the Forgot Pass frame
 		JLabel lblForgotPass = new JLabel("Forgot Password?");
 		lblForgotPass.addMouseListener(new MouseAdapter() {
 			@Override
@@ -282,7 +284,7 @@ public class FrameLogin extends JFrame {
 				ForgotPass fp = new ForgotPass();
 				fp.setVisible(true);
 			}
-			
+			//Forgot Password Hover effects
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				lblForgotPass.setForeground(Color.RED);

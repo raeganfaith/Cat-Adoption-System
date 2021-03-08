@@ -85,23 +85,19 @@ public class PanelAdopt extends JPanel {
 					AdoptionProcedure third = new AdoptionProcedure();
 					third.setVisible(true);
 				}
-				
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				paneladoptcat1.setBackground(new Color(225, 225, 200));
-			}
-			
+			}	
 			@Override
 			public void mouseExited(MouseEvent e) {
 				paneladoptcat1.setBackground(new Color(255, 255, 204));
-			}
-				
+			}				
 			@Override
 			public void mousePressed(MouseEvent e) {
 				paneladoptcat1.setBackground(new Color(295, 295, 294));
-			}
-			
+			}			
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				paneladoptcat1.setBackground(new Color(255, 255, 204));
