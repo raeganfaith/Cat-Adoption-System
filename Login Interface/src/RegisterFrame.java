@@ -507,7 +507,7 @@ public class RegisterFrame extends JFrame {
 		lblTerms.setBounds(323, 351, 76, 13);
 		contentPane.add(lblTerms);
 		
-		//To open the Terms of Use Frame
+		//To open the Privacy Policy Frame
 		JLabel lblPrivacy = new JLabel("Privacy Policy.");
 		lblPrivacy.addMouseListener(new MouseAdapter() {
 			@Override
