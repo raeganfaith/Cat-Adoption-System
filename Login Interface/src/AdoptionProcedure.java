@@ -123,7 +123,7 @@ public class AdoptionProcedure extends JFrame {
 		
 		JDateChooser dateChooser = new JDateChooser();
 		JDateChooser date = dateChooser;
-		dateChooser.setBounds(458, 208, 144, 33);
+		dateChooser.setBounds(458, 208, 144, 23);
 		contentPane.add(dateChooser);
 		date.setVisible(false);
 		
@@ -210,7 +210,7 @@ public class AdoptionProcedure extends JFrame {
 		JLabel lblValidate = new JLabel("");
 		lblValidate.setForeground(Color.RED);
 		lblValidate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblValidate.setBounds(446, 308, 331, 23);
+		lblValidate.setBounds(445, 287, 331, 23);
 		contentPane.add(lblValidate);
 		
 		JLabel lblPrivacy = new JLabel("Privacy Policy.");
@@ -236,8 +236,8 @@ public class AdoptionProcedure extends JFrame {
 		lblPrivacy.setBounds(686, 339, 77, 23);
 		contentPane.add(lblPrivacy);
 		
-		JPanel panelbtnDonate = new JPanel();
-		panelbtnDonate.addMouseListener(new MouseAdapter() {
+		JPanel panelbtnAdopt = new JPanel();
+		panelbtnAdopt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				String address;
@@ -259,24 +259,39 @@ public class AdoptionProcedure extends JFrame {
 					AdoptionProcedure.this.dispose();
 					JOptionPane.showMessageDialog(null, "Successfully Adopted!");
 					FrameDashboard second = new FrameDashboard();
-					second.setVisible(true);
-					
-				}
-				
+					second.setVisible(true);				
+				}			
+			}
+			//Hover effects
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panelbtnAdopt.setBackground(new Color(123, 123, 123));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panelbtnAdopt.setBackground(new Color(153, 153, 153));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				panelbtnAdopt.setBackground(new Color(193, 193, 193));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				panelbtnAdopt.setBackground(new Color(153, 153, 153));
 			}
 		});
-		panelbtnDonate.setLayout(null);
-		panelbtnDonate.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelbtnDonate.setBackground(new Color(153, 153, 153));
-		panelbtnDonate.setBounds(495, 382, 245, 40);
-		contentPane.add(panelbtnDonate);
+		panelbtnAdopt.setLayout(null);
+		panelbtnAdopt.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelbtnAdopt.setBackground(new Color(153, 153, 153));
+		panelbtnAdopt.setBounds(495, 382, 245, 40);
+		contentPane.add(panelbtnAdopt);
 		
 		JLabel lblAdopt_1 = new JLabel("ADOPT");
 		lblAdopt_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAdopt_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblAdopt_1.setBackground(Color.PINK);
 		lblAdopt_1.setBounds(10, 10, 225, 21);
-		panelbtnDonate.add(lblAdopt_1);
+		panelbtnAdopt.add(lblAdopt_1);
 		
 		
 

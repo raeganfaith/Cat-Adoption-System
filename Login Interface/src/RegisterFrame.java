@@ -311,7 +311,7 @@ public class RegisterFrame extends JFrame {
 					FrameLogin.password.add(pass);
 						
 					create.Back();
-					create.setVisible(true);
+					create.setVisible(false);
 				JOptionPane.showMessageDialog(null, "Registered!");
 				RegisterFrame.this.dispose();
 				SecurityQuestion secure = new SecurityQuestion();
@@ -450,6 +450,7 @@ public class RegisterFrame extends JFrame {
 		jSPassword2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		contentPane.add(jSPassword2);
 		
+		//Show Password
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Show Password");
 		chckbxNewCheckBox.setBounds(505, 283, 116, 21);
 		chckbxNewCheckBox.addActionListener(new ActionListener() {

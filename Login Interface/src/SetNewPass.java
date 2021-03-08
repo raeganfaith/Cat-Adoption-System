@@ -12,16 +12,20 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JPasswordField;
+import javax.swing.JCheckBox;
 
 public class SetNewPass extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtusernamenp;
-	private JPasswordField passwordField;
-	private JPasswordField passwordField2;
+	private JPasswordField jSPassword;
+	private JPasswordField jSPassword2;
 
 	/**
 	 * Launch the application.
@@ -113,13 +117,12 @@ public class SetNewPass extends JFrame {
 				FrameLogin creates = new FrameLogin();
 				String userr,newpass,newpass2;
 				userr = txtusernamenp.getText();
-				newpass = passwordField.getText();
-				newpass2 = passwordField.getText();
+				newpass = jSPassword.getText();
+				newpass2 = jSPassword.getText();
 				
 				if(userr.equals("")|| newpass.equals("")|| newpass2.equals("")) {
 					JOptionPane.showMessageDialog(null, "Please input all requirements!");
-				} else if(!(new String(passwordField.getPassword()).equals(new String(passwordField2.getPassword())))) {
-					//lblValidate.setText("Password didn't match!"); 
+				} else if(!(new String(jSPassword.getPassword()).equals(new String(jSPassword2.getPassword())))) { 
 					JOptionPane.showMessageDialog(null, "Password didn't match!");
 				} else {
 					FrameLogin.username.add(userr);
@@ -178,16 +181,34 @@ public class SetNewPass extends JFrame {
 		lblNewLabel_3_3_3.setBounds(46, 140, 455, 28);
 		contentPane_1.add(lblNewLabel_3_3_3);
 		
-		passwordField = new JPasswordField();
-		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		passwordField.setEchoChar('*');
-		passwordField.setBounds(56, 244, 290, 33);
-		contentPane_1.add(passwordField);
+		jSPassword = new JPasswordField();
+		jSPassword.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		jSPassword.setEchoChar('*');
+		jSPassword.setBounds(56, 244, 290, 33);
+		contentPane_1.add(jSPassword);
 		
-		passwordField2 = new JPasswordField();
-		passwordField2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		passwordField2.setEchoChar('*');
-		passwordField2.setBounds(56, 307, 290, 33);
-		contentPane_1.add(passwordField2);
+		jSPassword2 = new JPasswordField();
+		jSPassword2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		jSPassword2.setEchoChar('*');
+		jSPassword2.setBounds(56, 307, 290, 33);
+		contentPane_1.add(jSPassword2);
+		
+		//Show Password
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Show Password");
+		chckbxNewCheckBox.setBounds(505, 283, 116, 21);
+		chckbxNewCheckBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (chckbxNewCheckBox.isSelected()) {
+					jSPassword.setEchoChar((char)0);
+					jSPassword2.setEchoChar((char)0);
+				}else {
+					jSPassword.setEchoChar('*');
+					jSPassword2.setEchoChar('*');
+				}
+			}
+		});
+		chckbxNewCheckBox.setBackground(new Color(204, 153, 102));
+		chckbxNewCheckBox.setBounds(230, 346, 116, 21);
+		contentPane_1.add(chckbxNewCheckBox);
 	}
 }

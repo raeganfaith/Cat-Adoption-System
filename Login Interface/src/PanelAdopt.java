@@ -34,7 +34,7 @@ public class PanelAdopt extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Do you promise to give this cat a home?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
-					AdoptionProcess third = new AdoptionProcess();
+					AdoptionProcedure third = new AdoptionProcedure();
 					third.setVisible(true);
 				}
 			}
@@ -81,7 +81,7 @@ public class PanelAdopt extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Do you promise to give this cat a home?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
-					AdoptionProcess third = new AdoptionProcess();
+					AdoptionProcedure third = new AdoptionProcedure();
 					third.setVisible(true);
 				}
 				
@@ -129,7 +129,7 @@ public class PanelAdopt extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Do you promise to give this cat a home?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
-					AdoptionProcess third = new AdoptionProcess();
+					AdoptionProcedure third = new AdoptionProcedure();
 					third.setVisible(true);
 			}
 		}

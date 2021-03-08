@@ -144,6 +144,7 @@ public class SecurityQuestion extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ForgotPass dev = new ForgotPass();
+				FrameLogin frame = new FrameLogin();
 				String q1, q2,q3,backup;
 				q1 = txtquestion1.getText();
 				q2 = txtquestion2.getText();
@@ -157,6 +158,7 @@ public class SecurityQuestion extends JFrame {
 					ForgotPass.question3.add(q3);
 					ForgotPass.backupemail.add(backup);
 					dev.Back();
+					frame.setVisible(true);
 					SecurityQuestion.this.dispose();
 				}
 				

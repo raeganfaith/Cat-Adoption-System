@@ -36,7 +36,8 @@ public class FrameLogin extends JFrame {
 	private JTextField txtUsername;
 	private JPasswordField txtPassword;
 	private JLabel lblLoginMessage = new JLabel(""); 
-	//For inserting and getting static data 
+	
+	//For inserting and getting static input 
 	public static ArrayList <String> email = new ArrayList();
 	public static ArrayList <String> username = new ArrayList();
 	public static ArrayList <String> password = new ArrayList();
@@ -224,8 +225,9 @@ public class FrameLogin extends JFrame {
 		CloseButton.setBounds(570, 0, 30, 30);
 		contentPane.add(CloseButton);
 		
-		JPanel panelbtnRegister = new JPanel();
-		panelbtnRegister.addMouseListener(new MouseAdapter() {
+		//Sign up Button functions
+		JPanel pnlBtnSignUp = new JPanel();
+		pnlBtnSignUp.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Do you want to create to a new account?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
@@ -235,36 +237,37 @@ public class FrameLogin extends JFrame {
 			}
 				
 			}
+			//Hover effects to the sign up button
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				panelbtnRegister.setBackground(new Color(123, 123, 123));
+				pnlBtnSignUp.setBackground(new Color(123, 123, 123));
 			}
 			
 			@Override
 			public void mouseExited(MouseEvent e) {
-				panelbtnRegister.setBackground(new Color(153, 153, 153));
+				pnlBtnSignUp.setBackground(new Color(153, 153, 153));
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
-				panelbtnRegister.setBackground(new Color(193, 193, 193));
+				pnlBtnSignUp.setBackground(new Color(193, 193, 193));
 			}
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				panelbtnRegister.setBackground(new Color(153, 153, 153));
+				pnlBtnSignUp.setBackground(new Color(153, 153, 153));
 			}
 		});
-		panelbtnRegister.setLayout(null);
-		panelbtnRegister.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelbtnRegister.setBackground(new Color(153, 153, 153));
-		panelbtnRegister.setBounds(336, 331, 90, 40);
-		contentPane.add(panelbtnRegister);
+		pnlBtnSignUp.setLayout(null);
+		pnlBtnSignUp.setBorder(new LineBorder(new Color(0, 0, 0)));
+		pnlBtnSignUp.setBackground(new Color(153, 153, 153));
+		pnlBtnSignUp.setBounds(336, 331, 90, 40);
+		contentPane.add(pnlBtnSignUp);
 		
-		JLabel lblRegister = new JLabel(" SIGN UP");
-		lblRegister.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRegister.setBackground(Color.PINK);
-		lblRegister.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblRegister.setBounds(10, 10, 70, 21);
-		panelbtnRegister.add(lblRegister);
+		JLabel lblSignUp = new JLabel(" SIGN UP");
+		lblSignUp.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSignUp.setBackground(Color.PINK);
+		lblSignUp.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblSignUp.setBounds(10, 10, 70, 21);
+		pnlBtnSignUp.add(lblSignUp);
 		
 		JLabel lblIconLogo2 = new JLabel("");
 		lblIconLogo2.setBounds(176, 10, 250, 201);
@@ -275,6 +278,7 @@ public class FrameLogin extends JFrame {
 		lblForgotPass.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				FrameLogin.this.dispose();
 				ForgotPass fp = new ForgotPass();
 				fp.setVisible(true);
 			}
