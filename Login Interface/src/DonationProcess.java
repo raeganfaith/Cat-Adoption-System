@@ -64,7 +64,7 @@ public class DonationProcess extends JFrame {
 		
 		JLabel DonateCatPic = new JLabel("");
 		DonateCatPic.setBounds(0, 0, 381, 484);
-		DonateCatPic.setIcon(new ImageIcon(img_highfive));
+		DonateCatPic.setIcon(new ImageIcon(img_highfive));//to set the icon to the image we imported
 		contentPane.add(DonateCatPic);
 		
 		JPanel panel = new JPanel();
@@ -292,7 +292,7 @@ public class DonationProcess extends JFrame {
 				}
 			}
 		});
-		
+		//For validating the input of the user
 		JPanel panelbtnDonate = new JPanel();
 		panelbtnDonate.addMouseListener(new MouseAdapter() {
 			@Override
@@ -308,8 +308,7 @@ public class DonationProcess extends JFrame {
 					lblValidate1.setText("Please choose your amount of donation!");
 				} else if(rdbOther.isSelected() && other.equals("")) {
 					lblValidate1.setText("Please enter the amount of your donation !");
-				}
-				else {
+				} else {
 					JOptionPane.showMessageDialog(null, "Successfully donated!");
 					DonationProcess.this.dispose();
 					lblValidate1.setText("");
@@ -318,11 +317,11 @@ public class DonationProcess extends JFrame {
 					
 				}
 			}
+			//Hover effects
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				panelbtnDonate.setBackground(new Color(123, 123, 123));
 			}
-			
 			@Override
 			public void mouseExited(MouseEvent e) {
 				panelbtnDonate.setBackground(new Color(153, 153, 153));
