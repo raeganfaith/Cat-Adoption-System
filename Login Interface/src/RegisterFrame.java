@@ -33,6 +33,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
 
 public class RegisterFrame extends JFrame {
+	//To insert and resize the image inside the JLabel.
 	private Image img_neko = new ImageIcon(FrameLogin.class.getResource("res/logo.png")).getImage().getScaledInstance(180, 130, Image.SCALE_SMOOTH);
 
 	private JPanel contentPane;
@@ -65,7 +66,7 @@ public class RegisterFrame extends JFrame {
 		setBackground(new Color(204, 153, 102));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 646, 435);//Frame size
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(null);//To center the frame after running
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 153, 102));
 		contentPane.setForeground(new Color(153, 102, 102));
@@ -304,6 +305,7 @@ public class RegisterFrame extends JFrame {
 				} else if (!(privacy ==  true)) {
 					lblValidate.setText("Please agree to the Privacy and Terms Conditions!");
 				} else {
+					//To pass the input to the arraylist in FrameLogin
 					FrameLogin.email.add(email);
 					FrameLogin.username.add(user);
 					FrameLogin.password.add(pass);
@@ -316,7 +318,7 @@ public class RegisterFrame extends JFrame {
 				secure.setVisible(true);			
 				}	
 			}
-				
+			//Hover effects
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				jSRegister.setBackground(new Color(230, 130, 130));
@@ -403,7 +405,6 @@ public class RegisterFrame extends JFrame {
 				jSPassword.setText("");
 				jSPassword2.setText("");
 				buttonGroup.clearSelection();
-				//rdbFemale.setSelected(false);
 			}
 			
 			@Override
@@ -482,6 +483,7 @@ public class RegisterFrame extends JFrame {
 		txtAnd.setBackground(new Color(204, 153, 102));
 		contentPane.add(txtAnd);
 		
+		//To open the Terms of Use Frame
 		JLabel lblTerms = new JLabel("Terms of Use");
 		lblTerms.addMouseListener(new MouseAdapter() {
 			@Override
@@ -489,7 +491,7 @@ public class RegisterFrame extends JFrame {
 				TermsOfUse use = new TermsOfUse();
 				use.setVisible(true);
 			}
-			
+			//Hovering effects to determine that it is clickable.
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				lblTerms.setForeground(Color.RED);
@@ -505,6 +507,7 @@ public class RegisterFrame extends JFrame {
 		lblTerms.setBounds(323, 351, 76, 13);
 		contentPane.add(lblTerms);
 		
+		//To open the Terms of Use Frame
 		JLabel lblPrivacy = new JLabel("Privacy Policy.");
 		lblPrivacy.addMouseListener(new MouseAdapter() {
 			@Override
@@ -512,7 +515,7 @@ public class RegisterFrame extends JFrame {
 				PrivacyTerms privacy = new PrivacyTerms();
 				privacy.setVisible(true);
 			}
-			
+			//Hovering effects to determine that it is clickable.
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				lblPrivacy.setForeground(Color.RED);

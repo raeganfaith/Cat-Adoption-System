@@ -35,7 +35,8 @@ public class FrameLogin extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtUsername;
 	private JPasswordField txtPassword;
-	private JLabel lblLoginMessage = new JLabel("");
+	private JLabel lblLoginMessage = new JLabel(""); 
+	//For inserting and getting static data 
 	public static ArrayList <String> email = new ArrayList();
 	public static ArrayList <String> username = new ArrayList();
 	public static ArrayList <String> password = new ArrayList();
@@ -70,6 +71,7 @@ public class FrameLogin extends JFrame {
 		
 		txtUsername = new JTextField();
 		txtUsername.addFocusListener(new FocusAdapter() {
+			//Place holder
 			@Override
 			public void focusGained(FocusEvent e) {
 				if(txtUsername.getText().equals("Username")) {
@@ -109,6 +111,7 @@ public class FrameLogin extends JFrame {
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
+		//To change the default echochar in JPassword Field.
 		txtPassword = new JPasswordField();
 		txtPassword.addFocusListener(new FocusAdapter() {
 			@Override
@@ -130,7 +133,7 @@ public class FrameLogin extends JFrame {
 			}
 		});
 		txtPassword.setBorder(null);
-		txtPassword.setEchoChar((char)0);//So that the password will default to text
+		txtPassword.setEchoChar((char)0);
 		txtPassword.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		txtPassword.setText("Password");
 		txtPassword.setBounds(56, 10, 170, 20);
@@ -146,7 +149,6 @@ public class FrameLogin extends JFrame {
 		JLabel lblPassLogo = new JLabel("");
 		lblPassLogo.setBounds(0, 0, 39, 40);
 		pnlpass.add(lblPassLogo);
-		//lblIconUser.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPassLogo.setIcon(new ImageIcon(img_pass));
 		
 		JPanel pnlBtnLogin = new JPanel();
@@ -160,6 +162,7 @@ public class FrameLogin extends JFrame {
 					JOptionPane.showMessageDialog(null,"Login Successful!");
 					FrameDashboard second = new FrameDashboard();
 					second.setVisible(true);
+					FrameLogin.this.dispose();
 
 				}else if(username.isEmpty()&&password.isEmpty()) {
 					lblLoginMessage.setText("Please input all requirements!");
@@ -197,6 +200,8 @@ public class FrameLogin extends JFrame {
 		lblNewLabel.setBounds(10, 10, 70, 21);
 		pnlBtnLogin.add(lblNewLabel);
 		
+		
+		//-------Close button function----------
 		JLabel CloseButton = new JLabel("X");
 		CloseButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -226,6 +231,7 @@ public class FrameLogin extends JFrame {
 				if(JOptionPane.showConfirmDialog(null, "Do you want to create to a new account?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
 					RegisterFrame third = new RegisterFrame();
 					third.setVisible(true);
+					FrameLogin.this.dispose();
 			}
 				
 			}

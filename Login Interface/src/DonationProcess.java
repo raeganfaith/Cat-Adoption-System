@@ -50,9 +50,6 @@ public class DonationProcess extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public DonationProcess() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 484);
@@ -216,6 +213,7 @@ public class DonationProcess extends JFrame {
 		
 		txtName = new JTextField();
 		txtName.addKeyListener(new KeyAdapter() {
+			//To prevent the user enter integers in the JTextField
 			@Override
 			public void keyPressed(KeyEvent e) {
 				char c = e.getKeyChar();
@@ -230,17 +228,89 @@ public class DonationProcess extends JFrame {
 		txtName.setBounds(131, 91, 187, 24);
 		panelMain.add(txtName);
 		
+		JRadioButton rdb250 = new JRadioButton("PHP 250");
+		buttonGroup.add(rdb250);
+		rdb250.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		rdb250.setBackground(Color.PINK);
+		rdb250.setBounds(401, 98, 101, 32);
+		contentPane.add(rdb250);
+		
+		JRadioButton rdb500 = new JRadioButton("PHP 500");
+		buttonGroup.add(rdb500);
+		rdb500.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		rdb500.setBackground(Color.PINK);
+		rdb500.setBounds(401, 132, 101, 32);
+		contentPane.add(rdb500);
+		
+		JRadioButton rdb1k = new JRadioButton("PHP 1,000");
+		buttonGroup.add(rdb1k);
+		rdb1k.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		rdb1k.setBackground(Color.PINK);
+		rdb1k.setBounds(503, 100, 101, 32);
+		contentPane.add(rdb1k);
+		
+		JRadioButton rdb2k = new JRadioButton("PHP 2,000");
+		buttonGroup.add(rdb2k);
+		rdb2k.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		rdb2k.setBackground(Color.PINK);
+		rdb2k.setBounds(503, 132, 101, 32);
+		contentPane.add(rdb2k);
+		
+
+		JRadioButton rdbOther = new JRadioButton("Other Amount");
+		rdbOther.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtOther.setVisible(true);
+			}
+		});
+		
+		txtOther = new JTextField();
+		txtOther.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String phoneNumber = txtOther.getText(); //get 
+				int length = phoneNumber.length();
+				
+				char c = e.getKeyChar();
+				
+				//check for number 0 to 9
+				if(e.getKeyChar()>='0' && e.getKeyChar()<='9') {
+					//check fot the length not more than 10 digit
+					if(length<12) {
+						txtOther.setEditable(true);
+					} else {
+						txtOther.setEditable(false);
+					}
+				} else {
+					//allows the backspace and delete for edit
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						txtOther.setEditable(true);
+					} else {
+						txtOther.setEditable(false);
+					}
+				}
+			}
+		});
+		
 		JPanel panelbtnDonate = new JPanel();
 		panelbtnDonate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String name, card, month, year;
+				String name, card, other;
 				name = txtName.getText();
 				card = txtCardNum.getText();
+				other = txtOther.getText();
 				if(name.equals("")||card.equals("")) {
-					//JOptionPane.showConfirmDialog(null, "Please input all Requirements ?");
 					lblValidate1.setText("Please input all Requirements!");
-				}else {
+				}else if(!(rdb250.isSelected() || rdb500.isSelected() || rdb1k.isSelected() || rdb2k.isSelected() 
+						|| rdbOther.isSelected())){
+					lblValidate1.setText("Please choose your amount of donation!");
+				} else if(rdbOther.isSelected() && other.equals("")) {
+					lblValidate1.setText("Please enter the amount of your donation !");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Successfully donated!");
 					DonationProcess.this.dispose();
 					lblValidate1.setText("");
 					AdoptionProcess third = new AdoptionProcess();
@@ -279,76 +349,13 @@ public class DonationProcess extends JFrame {
 		lblDonate.setBounds(10, 10, 225, 21);
 		panelbtnDonate.add(lblDonate);
 		
-		
-		
-		JRadioButton rdb250 = new JRadioButton("PHP 250");
-		buttonGroup.add(rdb250);
-		rdb250.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		rdb250.setBackground(Color.PINK);
-		rdb250.setBounds(401, 98, 101, 32);
-		contentPane.add(rdb250);
-		
-		JRadioButton rdb500 = new JRadioButton("PHP 500");
-		buttonGroup.add(rdb500);
-		rdb500.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		rdb500.setBackground(Color.PINK);
-		rdb500.setBounds(401, 132, 101, 32);
-		contentPane.add(rdb500);
-		
-		JRadioButton rdb1k = new JRadioButton("PHP 1,000");
-		buttonGroup.add(rdb1k);
-		rdb1k.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		rdb1k.setBackground(Color.PINK);
-		rdb1k.setBounds(503, 100, 101, 32);
-		contentPane.add(rdb1k);
-		
-		JRadioButton rdb2k = new JRadioButton("PHP 2,000");
-		buttonGroup.add(rdb2k);
-		rdb2k.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		rdb2k.setBackground(Color.PINK);
-		rdb2k.setBounds(503, 132, 101, 32);
-		contentPane.add(rdb2k);
-		
-		JRadioButton rdbOther = new JRadioButton("Other Amount");
-		rdbOther.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txtOther.setVisible(true);
-			}
-		});
 		buttonGroup.add(rdbOther);
 		rdbOther.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		rdbOther.setBackground(Color.PINK);
 		rdbOther.setBounds(619, 100, 137, 32);
 		contentPane.add(rdbOther);
 		
-		txtOther = new JTextField();
-		txtOther.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				String phoneNumber = txtOther.getText(); //get 
-				int length = phoneNumber.length();
-				
-				char c = e.getKeyChar();
-				
-				//check for number 0 to 9
-				if(e.getKeyChar()>='0' && e.getKeyChar()<='9') {
-					//check fot the length not more than 10 digit
-					if(length<12) {
-						txtOther.setEditable(true);
-					} else {
-						txtOther.setEditable(false);
-					}
-				} else {
-					//allows the backspace and delete for edit
-					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
-						txtOther.setEditable(true);
-					} else {
-						txtOther.setEditable(false);
-					}
-				}
-			}
-		});
+		
 		txtOther.setBounds(629, 133, 137, 25);
 		contentPane.add(txtOther);
 		txtOther.setColumns(10);

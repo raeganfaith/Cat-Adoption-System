@@ -157,9 +157,6 @@ public class SecurityQuestion extends JFrame {
 					ForgotPass.question3.add(q3);
 					ForgotPass.backupemail.add(backup);
 					dev.Back();
-					dev.setVisible(true);
-					FrameLogin fl = new FrameLogin();
-					fl.setVisible(true);
 					SecurityQuestion.this.dispose();
 				}
 				
