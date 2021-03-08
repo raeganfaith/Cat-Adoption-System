@@ -36,6 +36,7 @@ public class PanelAdopt extends JPanel {
 				if(JOptionPane.showConfirmDialog(null, "Do you promise to give this cat a home?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
 					AdoptionProcedure third = new AdoptionProcedure();
 					third.setVisible(true);
+					
 				}
 			}
 			@Override

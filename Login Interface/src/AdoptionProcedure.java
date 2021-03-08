@@ -210,7 +210,7 @@ public class AdoptionProcedure extends JFrame {
 		JLabel lblValidate = new JLabel("");
 		lblValidate.setForeground(Color.RED);
 		lblValidate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblValidate.setBounds(445, 287, 331, 23);
+		lblValidate.setBounds(446, 308, 331, 23);
 		contentPane.add(lblValidate);
 		
 		JLabel lblPrivacy = new JLabel("Privacy Policy.");
@@ -258,8 +258,7 @@ public class AdoptionProcedure extends JFrame {
 				else {
 					AdoptionProcedure.this.dispose();
 					JOptionPane.showMessageDialog(null, "Successfully Adopted!");
-					FrameDashboard second = new FrameDashboard();
-					second.setVisible(true);				
+								
 				}			
 			}
 			//Hover effects

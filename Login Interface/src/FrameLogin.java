@@ -72,7 +72,7 @@ public class FrameLogin extends JFrame {
 		
 		txtUsername = new JTextField();
 		txtUsername.addFocusListener(new FocusAdapter() {
-			//Place holder
+			//Place holder for showing the username and password inside the JtextField
 			@Override
 			public void focusGained(FocusEvent e) {
 				if(txtUsername.getText().equals("Username")) {
