@@ -12,13 +12,11 @@ import java.awt.Font;
 import javax.swing.border.LineBorder;
 
 public class PanelAdopt extends JPanel {
+	//To import and resize images
 	private Image img_cat = new ImageIcon(PanelAdopt.class.getResource("res/cat1.png")).getImage().getScaledInstance(150, 230, Image.SCALE_SMOOTH);
 	private Image img_cat1 = new ImageIcon(PanelAdopt.class.getResource("res/cat3.png")).getImage().getScaledInstance(150, 230, Image.SCALE_SMOOTH);
 	private Image img_cat2 = new ImageIcon(PanelAdopt.class.getResource("res/cat2.png")).getImage().getScaledInstance(190, 230, Image.SCALE_SMOOTH);
 
-	/**
-	 * Create the panel.
-	 */
 	public PanelAdopt() {
 		setBackground(new Color(204, 153, 102));
 		setSize(524,454);
@@ -39,16 +37,15 @@ public class PanelAdopt extends JPanel {
 					
 				}
 			}
+			//Hover effects
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				panelAdoptcat.setBackground(new Color(235, 133, 170));
-			}
-			
+			}	
 			@Override
 			public void mouseExited(MouseEvent e) {
 				panelAdoptcat.setBackground(new Color(255, 153, 204));
 			}
-			
 			@Override
 			public void mousePressed(MouseEvent e) {
 				panelAdoptcat.setBackground(new Color(285, 183, 234));
@@ -158,7 +155,7 @@ public class PanelAdopt extends JPanel {
 		paneladoptcat2.setBackground(new Color(255, 153, 102));
 		paneladoptcat2.setBounds(192, 337, 131, 42);
 		add(paneladoptcat2);
-		
+		  
 		JLabel lblAdopt_1_1 = new JLabel("ADOPT ME!");
 		lblAdopt_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAdopt_1_1.setFont(new Font("Cher Faust", Font.PLAIN, 20));

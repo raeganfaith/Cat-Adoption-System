@@ -157,8 +157,6 @@ public class FrameDashboard extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to signout?") == 0) {
 					//To pop up the JFrame for login.
-					FrameLogin framelogin = new FrameLogin();
-					framelogin.setVisible(true);
 					//To close the FrameDashboard automatically
 					FrameDashboard.this.dispose();
 				}	
@@ -180,12 +178,14 @@ public class FrameDashboard extends JFrame {
 		
 		JLabel lblClose = new JLabel("X");
 		lblClose.addMouseListener(new MouseAdapter() {
+			//Confirmation and function of Close Button
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
 					FrameDashboard.this.dispose();
 			}
 		}
+			//Hover Effects of the Close Button
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				lblClose.setForeground(Color.RED);

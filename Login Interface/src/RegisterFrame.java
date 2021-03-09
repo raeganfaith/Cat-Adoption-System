@@ -65,7 +65,7 @@ public class RegisterFrame extends JFrame {
 	public RegisterFrame() {
 		setBackground(new Color(204, 153, 102));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 646, 435);//Frame size
+		setBounds(100, 100, 646, 435);//To adjust the Frame size
 		setLocationRelativeTo(null);//To center the frame after running
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 153, 102));
@@ -83,7 +83,7 @@ public class RegisterFrame extends JFrame {
 		JLabel lblNEKO1 = new JLabel("");
 		lblNEKO1.setBounds(55, 0, 200, 125);
 		panel.add(lblNEKO1);
-		lblNEKO1.setIcon(new ImageIcon(img_neko));
+		lblNEKO1.setIcon(new ImageIcon(img_neko));// To insert the image inside the Jlabel
 			
 		JLabel lblSignUp = new JLabel("SIGN UP HERE!");
 		lblSignUp.setBounds(232, 38, 305, 60);

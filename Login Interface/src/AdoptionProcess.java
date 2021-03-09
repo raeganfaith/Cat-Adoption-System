@@ -74,6 +74,7 @@ public class AdoptionProcess extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
 					AdoptionProcess.this.dispose();
+					FrameDashboard second = new FrameDashboard();
 				}
 			}
 			

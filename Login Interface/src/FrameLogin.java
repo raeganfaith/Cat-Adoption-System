@@ -164,7 +164,6 @@ public class FrameLogin extends JFrame {
 					JOptionPane.showMessageDialog(null,"Login Successful!");
 					FrameDashboard second = new FrameDashboard();
 					second.setVisible(true);
-					FrameLogin.this.dispose();
 
 				}else if(username.isEmpty()&&password.isEmpty()) {
 					lblLoginMessage.setText("Please input all requirements!");
@@ -200,8 +199,7 @@ public class FrameLogin extends JFrame {
 		JLabel lblNewLabel = new JLabel("   LOG IN");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(10, 10, 70, 21);
-		pnlBtnLogin.add(lblNewLabel);
-		
+		pnlBtnLogin.add(lblNewLabel);		
 		
 		//-------Close button function----------
 		JLabel CloseButton = new JLabel("X");
@@ -235,15 +233,13 @@ public class FrameLogin extends JFrame {
 					RegisterFrame third = new RegisterFrame();
 					third.setVisible(true);
 					FrameLogin.this.dispose();
-			}
-				
+			}			
 			}
 			//Hover effects to the sign up button
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				pnlBtnSignUp.setBackground(new Color(123, 123, 123));
-			}
-			
+			}			
 			@Override
 			public void mouseExited(MouseEvent e) {
 				pnlBtnSignUp.setBackground(new Color(153, 153, 153));
@@ -304,21 +300,21 @@ public class FrameLogin extends JFrame {
 		lblLoginMessage.setFont(new Font("Arial", Font.PLAIN, 10));
 		
 		//Forgot Password
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Show Password");
-		chckbxNewCheckBox.setBounds(357, 312, 152, 13);
-		contentPane.add(chckbxNewCheckBox);
-		chckbxNewCheckBox.addActionListener(new ActionListener() {
+		JCheckBox ShowPass = new JCheckBox("Show Password");
+		ShowPass.setBounds(357, 312, 152, 13);
+		contentPane.add(ShowPass);
+		ShowPass.addActionListener(new ActionListener() {
 			//Show Password
 			public void actionPerformed(ActionEvent e) {
-				if (chckbxNewCheckBox.isSelected()) {
+				if (ShowPass.isSelected()) {
 					txtPassword.setEchoChar((char)0);
 				}else {
 					txtPassword.setEchoChar('*');//Can be changed to bullet •
 				}
 			}
 		});
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 8));
-		chckbxNewCheckBox.setBackground(new Color(204, 153, 102));
+		ShowPass.setFont(new Font("Tahoma", Font.PLAIN, 8));
+		ShowPass.setBackground(new Color(204, 153, 102));
 		setUndecorated(true);
 		setLocationRelativeTo(null);
 	}
