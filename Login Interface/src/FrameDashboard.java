@@ -1,3 +1,4 @@
+//To import built-in and user-defined packages into your java source file
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Image;
@@ -26,9 +27,8 @@ public class FrameDashboard extends JFrame {
 	private PanelAbout panelAbout;
 	private PanelAdopt panelAdopt;
 	private PanelDonate panelDonate;
-	/**
-	 * Launch the application.
-	 */
+	
+	//Launch the application.
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -156,7 +156,6 @@ public class FrameDashboard extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to signout?") == 0) {
-					//To pop up the JFrame for login.
 					//To close the FrameDashboard automatically
 					FrameDashboard.this.dispose();
 				}	
@@ -215,6 +214,7 @@ public class FrameDashboard extends JFrame {
 		
 		menuClicked(panelHome);
 	}
+	//To hide the panels when no action is performed
 	public void menuClicked(JPanel panel) {
 		panelHome.setVisible(false);
 		panelAbout.setVisible(false);
@@ -223,6 +223,7 @@ public class FrameDashboard extends JFrame {
 		
 		panel.setVisible(true);
 	}
+	//For switching different panels
 	private class PanelButtonMouseAdapter extends MouseAdapter{
 		
 		JPanel panel;

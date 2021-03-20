@@ -1,3 +1,4 @@
+//To import built-in and user-defined packages into your java source file
 import java.awt.BorderLayout;
 
 import java.awt.EventQueue;
@@ -49,6 +50,7 @@ public class RegisterFrame extends JFrame {
 	private JTextField txtAnd;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
+	//Launch the application.
 	public void Back() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -284,12 +286,12 @@ public class RegisterFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				FrameLogin create = new FrameLogin();
-				String fname, lname, age, address,  email, user, pass, pass2;
+				String fname, lname, num, address,  email, user, pass, pass2;
 				boolean privacy;
 				//Set value to the string and boolean variables.		
 				fname = txtfname.getText();
 				lname = txtlname.getText();
-				age = txtPhoneNum.getText();
+				num = txtPhoneNum.getText();
 				address = txtaddress.getText();
 				email = txtemail.getText();
 				user = JsUsername.getText();
@@ -298,13 +300,24 @@ public class RegisterFrame extends JFrame {
 				privacy = PrivacyTerms.isSelected();
 				
 				//Conditional statement for the validation and function of the Signup Button
-				if (fname.equals("") ||lname.equals("") || age.equals("") || address.equals("")|| 
-						email.equals("")||pass.equals("")) {
-					lblValidate.setText("Please input all requirements!");
+				if (fname.equals("")) {
+					lblValidate.setText("Please input first name!");
+				} else if(lname.equals("")) {
+					lblValidate.setText("Please input last name!");
+				} else if(num.equals("")) {
+					lblValidate.setText("Please input your phone number!");
+				} else if(!(rdbMale.isSelected() || rdbFemale.isSelected())) {
+					lblValidate.setText("Please Select Gender!");
+				} else if(address.equals("")) {
+					lblValidate.setText("Please input your address!");
+				}else if(email.equals("")) {
+					lblValidate.setText("Please input your email!");
+				} else if(user.equals("")) {
+					lblValidate.setText("Please input your username!");
+				} else if(pass.equals("")) {
+					lblValidate.setText("Please input your password!");
 				} else if(!(new String(jSPassword.getPassword()).equals(new String(jSPassword2.getPassword())))) {
 						lblValidate.setText("Password didn't match!");	
-				}else if(!(rdbMale.isSelected() || rdbFemale.isSelected())) {
-					lblValidate.setText("Please Select Gender!");
 				} else if (!(privacy ==  true)) {
 					lblValidate.setText("Please agree to the Privacy and Terms Conditions!");
 				} else {
@@ -454,7 +467,7 @@ public class RegisterFrame extends JFrame {
 		jSPassword2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		contentPane.add(jSPassword2);
 		
-		//Show Password
+		//Give user an option to show Password
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Show Password");
 		chckbxNewCheckBox.setBounds(505, 283, 116, 21);
 		chckbxNewCheckBox.addActionListener(new ActionListener() {

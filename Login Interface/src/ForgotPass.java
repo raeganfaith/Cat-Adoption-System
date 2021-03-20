@@ -1,3 +1,4 @@
+//To import built-in and user-defined packages into your java source file
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -26,14 +27,14 @@ public class ForgotPass extends JFrame {
 	private JTextField txtq1fp;
 	private JTextField txtq2fp;
 	private JTextField txtq3fp;
+	
+	//For inserting and getting input, we use array list 
 	public static ArrayList <String> question1 = new ArrayList();
 	public static ArrayList <String> question2 = new ArrayList();
 	public static ArrayList <String> question3 = new ArrayList();
 	public static ArrayList <String> backupemail = new ArrayList();
 
-	/**
-	 * Launch the application.
-	 */
+	//Launch the application.
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -47,9 +48,6 @@ public class ForgotPass extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public ForgotPass() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -78,13 +76,14 @@ public class ForgotPass extends JFrame {
 		JLabel CloseButton = new JLabel("X");
 		CloseButton.setBounds(616, 0, 30, 40);
 		CloseButton.addMouseListener(new MouseAdapter() {	
+			//Close function and confirmation
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
 					ForgotPass.this.dispose();
 				}
 			}
-			
+			//Hovering effects for the CloseButton 
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				CloseButton.setForeground(Color.RED);
@@ -124,6 +123,8 @@ public class ForgotPass extends JFrame {
 		
 		txtemailfp = new JTextField();
 		txtemailfp.addKeyListener(new KeyAdapter() {
+			//Ask input from user
+			//Apply validation
 			@Override
 			public void keyReleased(KeyEvent e) {
 				String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{0,5}$";
@@ -181,11 +182,14 @@ public class ForgotPass extends JFrame {
 		jSSumbit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//Declares variable
 				String ques1, ques2, ques3, em;
+				//Gets the input from the user
 				ques1 = txtq1fp.getText();
 				ques2 = txtq2fp.getText();
 				ques3 = txtq3fp.getText();
 				em = txtemailfp.getText();
+				//Validation warning
 				if(question1.contains(ques1)&&question2.contains(ques2)&&question3.contains(ques3)&&backupemail.contains(em)) {
 					JOptionPane.showMessageDialog(null,"Successfully answered the textfields!");
 					SetNewPass security = new SetNewPass();

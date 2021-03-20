@@ -1,3 +1,4 @@
+//To import built-in and user-defined packages into your java source file
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -27,9 +28,6 @@ public class SetNewPass extends JFrame {
 	private JPasswordField jSPassword;
 	private JPasswordField jSPassword2;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -43,9 +41,6 @@ public class SetNewPass extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public SetNewPass() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,7 +73,8 @@ public class SetNewPass extends JFrame {
 		panel.add(lblSetYourNew);
 		
 		JLabel CloseButton = new JLabel("X");
-		CloseButton.addMouseListener(new MouseAdapter() {	
+		CloseButton.addMouseListener(new MouseAdapter() {
+			//Close Button Function and confirmation
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
@@ -114,29 +110,32 @@ public class SetNewPass extends JFrame {
 		jSSumbit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//Validation warning
 				FrameLogin creates = new FrameLogin();
 				String userr,newpass,newpass2;
 				userr = txtusernamenp.getText();
 				newpass = jSPassword.getText();
 				newpass2 = jSPassword.getText();
-				
+				//Conditional statements to specify the validation pop up
+				//To determine whether all require text fields are filled
 				if(userr.equals("")|| newpass.equals("")|| newpass2.equals("")) {
 					JOptionPane.showMessageDialog(null, "Please input all requirements!");
 				} else if(!(new String(jSPassword.getPassword()).equals(new String(jSPassword2.getPassword())))) { 
 					JOptionPane.showMessageDialog(null, "Password didn't match!");
 				} else {
+					//Passing the input from the SetNewPass Frame to the Login Frame.
 					FrameLogin.username.add(userr);
 					FrameLogin.password.add(newpass);
 					creates.Back();
 					creates.setVisible(true);
-					
+					//Tells user password is successfully update
 					JOptionPane.showMessageDialog(null, "Successfully Updated your password!");
 					SetNewPass.this.dispose();
 					FrameLogin framelogin = new FrameLogin();
 					framelogin.setVisible(true);
 				}
-				
 			}
+			//Hovering effects for the Submit Button
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				jSSumbit.setBackground(new Color(230, 130, 130));
@@ -193,11 +192,12 @@ public class SetNewPass extends JFrame {
 		jSPassword2.setBounds(56, 307, 290, 33);
 		contentPane_1.add(jSPassword2);
 		
-		//Show Password
+		//Show Password of the JPasswordField.
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Show Password");
 		chckbxNewCheckBox.setBounds(505, 283, 116, 21);
 		chckbxNewCheckBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Converts the echochar to letters for the visibility of user
 				if (chckbxNewCheckBox.isSelected()) {
 					jSPassword.setEchoChar((char)0);
 					jSPassword2.setEchoChar((char)0);

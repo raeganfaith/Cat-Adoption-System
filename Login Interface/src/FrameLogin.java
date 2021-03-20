@@ -1,3 +1,4 @@
+//To import built-in and user-defined packages into your java source file
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -42,6 +43,8 @@ public class FrameLogin extends JFrame {
 	public static ArrayList <String> username = new ArrayList();
 	public static ArrayList <String> password = new ArrayList();
 	
+	
+	//Launch the application.
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -123,7 +126,6 @@ public class FrameLogin extends JFrame {
 				} else {
 					txtPassword.selectAll();
 				}
-				
 			}
 			@Override
 			public void focusLost(FocusEvent e) {
@@ -157,17 +159,23 @@ public class FrameLogin extends JFrame {
 		pnlBtnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//To declare variables to be use in this function
 				String user, pass;
+				//To take and read an input from a user
 				user = txtUsername.getText();
 				pass = txtPassword.getText();
 				if (username.contains(user)&&password.contains(pass)) {
 					JOptionPane.showMessageDialog(null,"Login Successful!");
 					FrameDashboard second = new FrameDashboard();
 					second.setVisible(true);
-
+				//To inform the user the missing requirement
 				}else if(username.isEmpty()&&password.isEmpty()) {
-					lblLoginMessage.setText("Please input all requirements!");
-				
+					lblLoginMessage.setText("Please input username and password!");
+				}else if(!(username.contains(user))) {
+					lblLoginMessage.setText("Wrong username!");	
+				} else if(!(password.contains(pass))) {
+					lblLoginMessage.setText("Wrong password!");	
+				//If the registered user and password is different from the information being put for log in
 				}else {
 					lblLoginMessage.setText("Username and Password didn't match!");
 				}
@@ -299,7 +307,6 @@ public class FrameLogin extends JFrame {
 		lblLoginMessage.setForeground(new Color(204, 0, 0));
 		lblLoginMessage.setFont(new Font("Arial", Font.PLAIN, 10));
 		
-		//Forgot Password
 		JCheckBox ShowPass = new JCheckBox("Show Password");
 		ShowPass.setBounds(357, 312, 152, 13);
 		contentPane.add(ShowPass);

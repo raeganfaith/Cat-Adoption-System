@@ -1,3 +1,4 @@
+  //To import built-in and user-defined packages into your java source file
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -30,10 +31,6 @@ public class SecurityQuestion extends JFrame {
 	private JTextField txtquestion3;
 	private JTextField txtemailbackup;
 	
-
-	/**
-	 * Launch the application.
-	 */
 	public void Back() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -58,6 +55,7 @@ public class SecurityQuestion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//Close Button Function
 		JLabel CloseButton = new JLabel("X");
 		CloseButton.setBounds(616, 5, 30, 30);
 		contentPane.add(CloseButton);
@@ -68,6 +66,7 @@ public class SecurityQuestion extends JFrame {
 					SecurityQuestion.this.dispose();
 				}
 			}
+			//Hovering effects of the close button
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				CloseButton.setForeground(Color.RED);
@@ -145,14 +144,18 @@ public class SecurityQuestion extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				ForgotPass dev = new ForgotPass();
 				FrameLogin frame = new FrameLogin();
+				//Declare variable to be used for this function
 				String q1, q2,q3,backup;
+				//To get the input from the user
 				q1 = txtquestion1.getText();
 				q2 = txtquestion2.getText();
 				q3 = txtquestion3.getText();
 				backup = txtemailbackup.getText();
+				//Determine whether the text fields are filled, or not.
 				if(q1.equals("") || q2.equals("") || q3.equals("") || backup.contentEquals("")) {
 					JOptionPane.showMessageDialog(null, "Please input all requirements!");
 				} else {
+					//Passing the input from this frame to the ForgotPass Frame.
 					ForgotPass.question1.add(q1);
 					ForgotPass.question2.add(q2);
 					ForgotPass.question3.add(q3);
@@ -193,6 +196,7 @@ public class SecurityQuestion extends JFrame {
 		lblSubmit.setBounds(10, 10, 104, 21);
 		pnlSubmitBackup.add(lblSubmit);
 		
+		//Clear button Function
 		JPanel panelbtnClear = new JPanel();
 		panelbtnClear.addMouseListener(new MouseAdapter() {
 			@Override
@@ -203,21 +207,19 @@ public class SecurityQuestion extends JFrame {
 				txtquestion3.setText("");
 				txtemailbackup.setText("");
 			}
+			//Hovering effects of Clear button 
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				panelbtnClear.setBackground(new Color(123, 123, 123));
-			}
-			
+			}		
 			@Override
 			public void mouseExited(MouseEvent e) {
 				panelbtnClear.setBackground(new Color(153, 153, 153));
-			}
-			
+			}		
 			@Override
 			public void mousePressed(MouseEvent e) {
 				panelbtnClear.setBackground(new Color(193, 193, 193));
-			}
-			
+			}		
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				panelbtnClear.setBackground(new Color(153, 153, 153));
@@ -247,10 +249,13 @@ public class SecurityQuestion extends JFrame {
 		lblValidate.setBounds(360, 343, 201, 23);
 		contentPane_1.add(lblValidate);
 		
+		//Back up email for forget password
+		//Determines whether entered email is valid
 		txtemailbackup = new JTextField();
 		txtemailbackup.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
+				//set pattern for the validation of email
 				String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{0,5}$";
 			Pattern patt = Pattern.compile(PATTERN);
 			Matcher match = patt.matcher(txtemailbackup.getText());
