@@ -1,14 +1,3 @@
-/AdoptionProcedure$1.class
-/AdoptionProcedure$2.class
-/AdoptionProcedure$3.class
-/AdoptionProcedure$4.class
-/AdoptionProcedure$5.class
-/AdoptionProcedure$6.class
-/AdoptionProcedure$7.class
-/AdoptionProcedure.class
-/AdoptionProcess$1.class
-/AdoptionProcess$2.class
-/AdoptionProcess.class
 /DonationProcess$1.class
 /DonationProcess$2.class
 /DonationProcess$3.class
@@ -72,12 +61,11 @@
 /SecurityQuestion$4.class
 /SecurityQuestion$5.class
 /SecurityQuestion.class
+/SetNewPass$1.class
 /SetNewPass$2.class
 /SetNewPass$3.class
 /SetNewPass$4.class
 /SetNewPass.class
-/res/
-/SetNewPass$1.class
 /TermsOfUse$1.class
 /TermsOfUse$2.class
 /TermsOfUse$3.class
@@ -85,3 +73,4 @@
 /Welcome$1.class
 /Welcome$2.class
 /Welcome.class
+/res/

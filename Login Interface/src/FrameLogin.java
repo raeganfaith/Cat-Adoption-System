@@ -120,7 +120,7 @@ public class FrameLogin extends JFrame {
 		txtPassword.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if(txtPassword.getText().equals("Password")) {
+				if(txtPassword.getText().equals("Password")) { 
 					txtPassword.setEchoChar('*');//can also be changed to bullet
 					txtPassword.setText("");
 				} else {
