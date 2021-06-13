@@ -326,6 +326,7 @@ public class FrameLogin extends JFrame {
 		setLocationRelativeTo(null);
 	}
 
+
 	public void Back() {
 		
 	}

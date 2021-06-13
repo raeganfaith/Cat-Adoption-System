@@ -50,7 +50,7 @@ public class RegisterFrame extends JFrame {
 	private JTextField txtAnd;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
-	//Launch the application.
+	//Launch the application.Method
 	public void Back() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
